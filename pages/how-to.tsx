@@ -1,10 +1,8 @@
 import React from 'react';
-import Nav from '../components/Nav';
 
 export default function HowTo() {
   return (
     <>
-      <Nav />
       <main
         style={{
           padding: "2rem",

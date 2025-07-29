@@ -1,10 +1,8 @@
 import React from 'react';
-import Nav from '../components/Nav';
 
 export default function Home() {
   return (
     <>
-      <Nav />
       <main style={{ padding: '2rem', fontFamily: 'sans-serif', lineHeight: '1.6' }}>
         <h1>Welcome!</h1>
         <p>
