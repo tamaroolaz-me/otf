@@ -1,50 +1,212 @@
 import React from 'react';
+import Link from 'next/link';
 import Nav from '../components/Nav';
 
 export default function Home() {
   return (
     <>
       <Nav />
-      <main style={{ padding: '2rem', fontFamily: 'sans-serif', lineHeight: '1.6' }}>
-        <h1>Welcome!</h1>
-        <p>
-          This site is a space to explore one of the most powerful skills we can develop: being open to feedback.
-          Whether you're new to the idea or already on your journey, you’ll find tools, thoughts, and resources to help you grow.
-        </p>
-
-        <section style={{ marginTop: '2rem' }}>
-          <h2>Here, you’ll find:</h2>
-          <ul>
-            <li>Simple guidance on how to give and receive feedback</li>
-            <li>Myths and mindset shifts that make feedback easier</li>
-            <li>Free resources and reading suggestions</li>
-            <li>A course to help you level up this skill</li>
-          </ul>
+      
+      {/* Add top padding to account for fixed header */}
+      <div style={{ paddingTop: '70px' }}>
+        
+        {/* Hero Section */}
+        <section className="hero">
+          <div className="container">
+            <h1>Master the Art of Being Open to Feedback</h1>
+            <p>
+              Transform your personal and professional relationships by developing one of the most powerful skills:
+              being genuinely open to feedback. Whether you're just starting or looking to deepen your practice,
+              you'll find the tools and insights you need here.
+            </p>
+            <div style={{
+              display: 'flex',
+              gap: 'var(--space-4)',
+              justifyContent: 'center',
+              flexWrap: 'wrap',
+              marginTop: 'var(--space-8)'
+            }}>
+              <Link href="/course" className="btn btn-primary btn-lg">
+                Join the Course
+              </Link>
+              <Link href="/how-to" className="btn btn-secondary btn-lg">
+                Get Started Free
+              </Link>
+            </div>
+          </div>
         </section>
 
-        <section
-          style={{
-            marginTop: '4rem',
-            padding: '1.5rem',
-            border: '1px solid #ddd',
-            borderRadius: '8px',
-            backgroundColor: '#f9f9f9',
-          }}
-        >
-          <h2 style={{ marginBottom: '1rem' }}>Why does the site look so hideous? 😅</h2>
-          <p>
-            In the spirit of being <strong>open to feedback</strong> (yes, I'm trying to live 'on brand'), I’m learning how to rebuild this site myself —
-            using AI-powered tools and a healthy dose of curiosity. This approach is sometimes called <em>vibe coding</em>.
-          </p>
-          <p>
-            That means the site might be a little ugly, unfinished, or broken at times — but it’s all part of the process.
-            I’ll be slowly adding better design, features, and polish as I learn.
-          </p>
-          <p>
-            Thanks for stopping by — and feel free to share your thoughts, suggestions, or feedback any time. 💬
-          </p>
+        {/* Features Section */}
+        <section className="section">
+          <div className="container">
+            <div style={{ textAlign: 'center', marginBottom: 'var(--space-16)' }}>
+              <h2>Everything You Need to Grow</h2>
+              <p style={{ fontSize: '1.125rem', maxWidth: '600px', margin: '0 auto' }}>
+                Discover practical tools, proven frameworks, and expert guidance to help you embrace feedback as a catalyst for growth.
+              </p>
+            </div>
+            
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+              gap: 'var(--space-8)',
+              marginBottom: 'var(--space-12)'
+            }}>
+              <div className="card">
+                <div className="card-header">
+                  <div style={{
+                    width: '48px',
+                    height: '48px',
+                    background: 'var(--primary-100)',
+                    borderRadius: 'var(--radius)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: 'var(--space-4)'
+                  }}>
+                    <span style={{ fontSize: '24px' }}>🎯</span>
+                  </div>
+                  <h3 className="card-title">Practical Guidance</h3>
+                </div>
+                <p className="card-description">
+                  Step-by-step instructions on how to ask for, receive, and act on feedback effectively.
+                  No theory-heavy content—just actionable strategies you can use immediately.
+                </p>
+              </div>
+
+              <div className="card">
+                <div className="card-header">
+                  <div style={{
+                    width: '48px',
+                    height: '48px',
+                    background: 'var(--primary-100)',
+                    borderRadius: 'var(--radius)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: 'var(--space-4)'
+                  }}>
+                    <span style={{ fontSize: '24px' }}>🧠</span>
+                  </div>
+                  <h3 className="card-title">Mindset Shifts</h3>
+                </div>
+                <p className="card-description">
+                  Overcome common myths and mental barriers that make feedback feel threatening.
+                  Learn to see feedback as a gift rather than criticism.
+                </p>
+              </div>
+
+              <div className="card">
+                <div className="card-header">
+                  <div style={{
+                    width: '48px',
+                    height: '48px',
+                    background: 'var(--primary-100)',
+                    borderRadius: 'var(--radius)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: 'var(--space-4)'
+                  }}>
+                    <span style={{ fontSize: '24px' }}>📚</span>
+                  </div>
+                  <h3 className="card-title">Free Resources</h3>
+                </div>
+                <p className="card-description">
+                  Curated reading lists, podcast recommendations, and practical exercises
+                  to support your feedback journey—all completely free.
+                </p>
+              </div>
+
+              <div className="card">
+                <div className="card-header">
+                  <div style={{
+                    width: '48px',
+                    height: '48px',
+                    background: 'var(--primary-100)',
+                    borderRadius: 'var(--radius)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: 'var(--space-4)'
+                  }}>
+                    <span style={{ fontSize: '24px' }}>🚀</span>
+                  </div>
+                  <h3 className="card-title">Structured Course</h3>
+                </div>
+                <p className="card-description">
+                  Take your skills to the next level with our comprehensive course designed to help you
+                  master the art of being open to feedback.
+                </p>
+              </div>
+            </div>
+          </div>
         </section>
-      </main>
+
+        {/* CTA Section */}
+        <section style={{
+          background: 'var(--primary-50)',
+          padding: 'var(--space-16) 0',
+          borderTop: '1px solid var(--primary-200)',
+          borderBottom: '1px solid var(--primary-200)'
+        }}>
+          <div className="container" style={{ textAlign: 'center' }}>
+            <h2 style={{ color: 'var(--primary-900)', marginBottom: 'var(--space-6)' }}>
+              Ready to Transform How You Handle Feedback?
+            </h2>
+            <p style={{
+              fontSize: '1.125rem',
+              color: 'var(--primary-700)',
+              maxWidth: '600px',
+              margin: '0 auto var(--space-8)'
+            }}>
+              Join our course and learn the frameworks, tools, and mindset shifts that will help you
+              embrace feedback as your greatest catalyst for growth.
+            </p>
+            <Link href="/course" className="btn btn-primary btn-lg">
+              Get Started Today
+            </Link>
+          </div>
+        </section>
+
+        {/* About the Journey Section */}
+        <section className="section">
+          <div className="container-sm">
+            <div className="card" style={{
+              background: 'linear-gradient(135deg, var(--gray-50) 0%, var(--primary-50) 100%)',
+              border: '1px solid var(--primary-200)'
+            }}>
+              <div className="card-header">
+                <h2 className="card-title" style={{ color: 'var(--primary-900)' }}>
+                  A Personal Journey of Growth 🌱
+                </h2>
+              </div>
+              <div style={{ color: 'var(--primary-800)' }}>
+                <p>
+                  In the spirit of being <strong>open to feedback</strong>, this site represents my own learning journey.
+                  I'm rebuilding it using modern tools and AI assistance—embracing the process of continuous improvement.
+                </p>
+                <p>
+                  You might notice changes, improvements, or even the occasional rough edge as I iterate and grow.
+                  That's intentional. It's a living example of what it means to stay open to feedback and keep evolving.
+                </p>
+                <p style={{ marginBottom: 'var(--space-6)' }}>
+                  Thanks for being part of this journey. Your thoughts, suggestions, and feedback are always welcome! 💬
+                </p>
+                <Link
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSeowyks1yjH50mc9ST9PKpsSPpaveIlZMRCBTgC_2GVjpz3dQ/viewform"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-secondary"
+                >
+                  Share Your Feedback
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
     </>
   );
 }
