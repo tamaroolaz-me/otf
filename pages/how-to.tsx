@@ -17,12 +17,12 @@ export default function HowTo() {
           textAlign: 'center'
         }}>
           <div className="container">
-            <h1 style={{ color: 'var(--primary-900)', marginBottom: 'var(--space-6)' }}>
+            <h1 style={{ color: 'var(--foreground)', marginBottom: 'var(--space-6)' }}>
               How to Start Being Open to Feedback
             </h1>
             <p style={{
               fontSize: '1.125rem',
-              color: 'var(--primary-700)',
+              color: 'var(--muted-foreground)',
               maxWidth: '600px',
               margin: '0 auto var(--space-6)'
             }}>
@@ -35,7 +35,7 @@ export default function HowTo() {
               display: 'inline-block'
             }}>
               <p style={{
-                color: 'var(--primary-900)',
+                color: 'var(--foreground)',
                 fontSize: '0.875rem',
                 margin: 0,
                 fontWeight: '500'
@@ -72,7 +72,7 @@ export default function HowTo() {
                 }}>
                   1
                 </div>
-                <h2 style={{ margin: 0, color: 'var(--primary-900)' }}>
+                <h2 style={{ margin: 0, color: 'var(--foreground)' }}>
                   Understand What It Means & Why It's Valuable
                 </h2>
               </div>
@@ -87,7 +87,7 @@ export default function HowTo() {
                 borderRadius: 'var(--radius)',
                 border: '1px solid var(--primary-200)'
               }}>
-                <h4 style={{ color: 'var(--primary-900)', marginBottom: 'var(--space-3)' }}>
+                <h4 style={{ color: 'var(--foreground)', marginBottom: 'var(--space-3)' }}>
                   🎧 Listen on:
                 </h4>
                 <div style={{ display: 'flex', gap: 'var(--space-4)', flexWrap: 'wrap' }}>
@@ -129,7 +129,7 @@ export default function HowTo() {
                 }}>
                   2
                 </div>
-                <h2 style={{ margin: 0, color: 'var(--primary-900)' }}>
+                <h2 style={{ margin: 0, color: 'var(--foreground)' }}>
                   Make a Personal Commitment
                 </h2>
               </div>
@@ -170,7 +170,7 @@ export default function HowTo() {
                 }}>
                   3
                 </div>
-                <h2 style={{ margin: 0, color: 'var(--primary-900)' }}>
+                <h2 style={{ margin: 0, color: 'var(--foreground)' }}>
                   Practice Asking for & Receiving Feedback
                 </h2>
               </div>
@@ -208,7 +208,7 @@ export default function HowTo() {
                 }}>
                   4
                 </div>
-                <h2 style={{ margin: 0, color: 'var(--primary-900)' }}>
+                <h2 style={{ margin: 0, color: 'var(--foreground)' }}>
                   Reflect & Decide What to Action
                 </h2>
               </div>
@@ -224,10 +224,10 @@ export default function HowTo() {
                 marginTop: 'var(--space-4)'
               }}>
                 <ul style={{ margin: 0, paddingLeft: 'var(--space-6)' }}>
-                  <li style={{ color: 'var(--primary-800)' }}>What's not clear? What clarifying questions should I ask?</li>
-                  <li style={{ color: 'var(--primary-800)' }}>What might be true or useful in this feedback?</li>
-                  <li style={{ color: 'var(--primary-800)' }}>How can I best act on the most valuable insights?</li>
-                  <li style={{ color: 'var(--primary-800)' }}>What patterns am I seeing across different feedback sources?</li>
+                  <li style={{ color: 'var(--foreground)' }}>What's not clear? What clarifying questions should I ask?</li>
+                  <li style={{ color: 'var(--foreground)' }}>What might be true or useful in this feedback?</li>
+                  <li style={{ color: 'var(--foreground)' }}>How can I best act on the most valuable insights?</li>
+                  <li style={{ color: 'var(--foreground)' }}>What patterns am I seeing across different feedback sources?</li>
                 </ul>
               </div>
               
@@ -238,10 +238,10 @@ export default function HowTo() {
                 marginTop: 'var(--space-6)',
                 textAlign: 'center'
               }}>
-                <h3 style={{ color: 'var(--primary-900)', marginBottom: 'var(--space-2)' }}>
+                <h3 style={{ color: 'var(--foreground)', marginBottom: 'var(--space-2)' }}>
                   🔄 Repeat Steps 3 & 4 Continuously
                 </h3>
-                <p style={{ color: 'var(--primary-800)', margin: 0 }}>
+                <p style={{ color: 'var(--foreground)', margin: 0 }}>
                   Make this a regular practice, not a one-time activity
                 </p>
               </div>
@@ -259,21 +259,21 @@ export default function HowTo() {
                 gap: 'var(--space-6)'
               }}>
                 <div>
-                  <h4 style={{ color: 'var(--primary-900)', marginBottom: 'var(--space-3)' }}>📺 Watch</h4>
+                  <h4 style={{ color: 'var(--foreground)', marginBottom: 'var(--space-3)' }}>📺 Watch</h4>
                   <ul style={{ marginLeft: 'var(--space-4)' }}>
                     <li><em>Brené Brown: The Call to Courage</em> (Netflix)</li>
                   </ul>
                 </div>
                 
                 <div>
-                  <h4 style={{ color: 'var(--primary-900)', marginBottom: 'var(--space-3)' }}>🎧 Listen</h4>
+                  <h4 style={{ color: 'var(--foreground)', marginBottom: 'var(--space-3)' }}>🎧 Listen</h4>
                   <ul style={{ marginLeft: 'var(--space-4)' }}>
                     <li><em>Leading Above the Line</em></li>
                   </ul>
                 </div>
                 
                 <div>
-                  <h4 style={{ color: 'var(--primary-900)', marginBottom: 'var(--space-3)' }}>📖 Read</h4>
+                  <h4 style={{ color: 'var(--foreground)', marginBottom: 'var(--space-3)' }}>📖 Read</h4>
                   <ul style={{ marginLeft: 'var(--space-4)' }}>
                     <li><em>Thanks for the Feedback</em> – Douglas Stone & Sheila Heen</li>
                     <li><em>Radical Candor</em> – Kim Scott</li>
@@ -291,16 +291,16 @@ export default function HowTo() {
               border: '1px solid var(--primary-200)'
             }}>
               <div className="card-header">
-                <h2 className="card-title" style={{ color: 'var(--primary-900)' }}>
+                <h2 className="card-title" style={{ color: 'var(--foreground)' }}>
                   ⏰ When's the Best Time to Ask for Feedback?
                 </h2>
               </div>
-              <p style={{ color: 'var(--primary-800)' }}>
+              <p style={{ color: 'var(--foreground)' }}>
                 The best time to ask for feedback is when you're <strong>"above the line"</strong> —
                 in a positive, open, and curious mindset. Being in this space helps reduce your natural
                 defensive response to potentially challenging feedback.
               </p>
-              <p style={{ color: 'var(--primary-800)', marginBottom: 'var(--space-6)' }}>
+              <p style={{ color: 'var(--foreground)', marginBottom: 'var(--space-6)' }}>
                 If you're feeling defensive, stressed, or overwhelmed, it might be better to wait until
                 you're in a more receptive state of mind.
               </p>

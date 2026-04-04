@@ -251,34 +251,34 @@ function ResultSection({ type, scores, dominant }: { type: 'A' | 'B' | 'C'; scor
   const r = RESULTS[type];
   return (
     <div style={{ marginBottom: 'var(--space-12)' }}>
-      <h2 style={{ color: 'var(--primary-800)', marginTop: 0 }}>{r.headline}</h2>
-      <p style={{ fontSize: '1.1rem', fontStyle: 'italic', color: 'var(--gray-600)', marginBottom: 'var(--space-6)' }}>
+      <h2 style={{ color: 'var(--foreground)', marginTop: 0 }}>{r.headline}</h2>
+      <p style={{ fontSize: '1.1rem', fontStyle: 'italic', color: 'var(--muted-foreground)', marginBottom: 'var(--space-6)' }}>
         {r.subheadline}
       </p>
 
-      <h3 style={{ fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--gray-500)', marginTop: 0 }}>
+      <h3 style={{ fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--muted-foreground)', marginTop: 0 }}>
         What this means
       </h3>
       {r.what_this_means.map((p, i) => (
-        <p key={i} style={{ color: 'var(--gray-700)' }}>{parseFootnotes(p, type)}</p>
+        <p key={i} style={{ color: 'var(--foreground)' }}>{parseFootnotes(p, type)}</p>
       ))}
 
-      <h3 style={{ fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--gray-500)' }}>
+      <h3 style={{ fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--muted-foreground)' }}>
         What gets in the way
       </h3>
       <ul style={{ marginBottom: 'var(--space-6)' }}>
         {r.what_gets_in_the_way.map((item, i) => (
-          <li key={i} style={{ color: 'var(--gray-700)', marginBottom: 'var(--space-2)' }}>{parseFootnotes(item, type)}</li>
+          <li key={i} style={{ color: 'var(--foreground)', marginBottom: 'var(--space-2)' }}>{parseFootnotes(item, type)}</li>
         ))}
       </ul>
 
-      <h3 style={{ fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--gray-500)' }}>
+      <h3 style={{ fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--muted-foreground)' }}>
         What helps
       </h3>
       {r.what_helps.map((tip, i) => (
         <div key={i} style={{ marginBottom: 'var(--space-4)' }}>
-          <p style={{ fontWeight: '600', color: 'var(--gray-800)', marginBottom: 'var(--space-1)' }}>{tip.title}</p>
-          <p style={{ color: 'var(--gray-700)', marginBottom: 0 }}>{parseFootnotes(tip.body, type)}</p>
+          <p style={{ fontWeight: '600', color: 'var(--foreground)', marginBottom: 'var(--space-1)' }}>{tip.title}</p>
+          <p style={{ color: 'var(--foreground)', marginBottom: 0 }}>{parseFootnotes(tip.body, type)}</p>
         </div>
       ))}
 
@@ -295,13 +295,13 @@ function ResultSection({ type, scores, dominant }: { type: 'A' | 'B' | 'C'; scor
       </div>
 
       <div style={{
-        background: 'var(--gray-50)',
+        background: 'var(--muted)',
         border: '1px solid var(--border)',
         borderRadius: 'var(--radius)',
         padding: 'var(--space-5)',
         marginBottom: 'var(--space-6)',
       }}>
-        <p style={{ color: 'var(--gray-600)', marginBottom: 0 }}>
+        <p style={{ color: 'var(--muted-foreground)', marginBottom: 0 }}>
           {r.teaser}{' '}
           <Link href="/course" style={{ color: 'var(--primary-600)', fontWeight: '500' }}>
             join the waitlist →
@@ -396,16 +396,16 @@ export default function Quiz() {
               </p>
 
               <div className="card" style={{ background: 'white' }}>
-                <p style={{ color: 'var(--gray-700)' }}>
+                <p style={{ color: 'var(--foreground)' }}>
                   Most of us don&rsquo;t have a feedback problem. We have a <em>trigger</em> problem.
                 </p>
-                <p style={{ color: 'var(--gray-700)' }}>
+                <p style={{ color: 'var(--foreground)' }}>
                   When critical feedback lands badly, it&rsquo;s not usually because we&rsquo;re defensive or fragile. It&rsquo;s because something specific about that feedback — the content, the person, or what it implies about us — sets off a protective reaction we can&rsquo;t always control.
                 </p>
-                <p style={{ color: 'var(--gray-700)' }}>
+                <p style={{ color: 'var(--foreground)' }}>
                   Researchers have identified three distinct types of feedback trigger, and most people have one they&rsquo;re especially prone to.<sup><a href="#intro-ref-1" style={{ color: 'var(--primary-600)', textDecoration: 'none', fontWeight: '500' }}>¹</a></sup>
                 </p>
-                <p style={{ color: 'var(--gray-700)', marginBottom: 'var(--space-6)' }}>
+                <p style={{ color: 'var(--foreground)', marginBottom: 'var(--space-6)' }}>
                   This 7-question quiz will help you identify yours — and give you a personalised set of strategies to handle it better.
                 </p>
 
@@ -476,7 +476,7 @@ export default function Quiz() {
                 <p style={{
                   fontSize: '1.125rem',
                   fontWeight: '600',
-                  color: 'var(--gray-800)',
+                  color: 'var(--foreground)',
                   marginBottom: 'var(--space-6)',
                 }}>
                   {QUESTIONS[currentQ].text}
@@ -492,7 +492,7 @@ export default function Quiz() {
                         alignItems: 'flex-start',
                         gap: 'var(--space-3)',
                         padding: 'var(--space-4)',
-                        background: 'var(--gray-50)',
+                        background: 'var(--muted)',
                         border: '1px solid var(--border)',
                         borderRadius: 'var(--radius)',
                         cursor: 'pointer',
@@ -502,11 +502,11 @@ export default function Quiz() {
                         fontFamily: 'var(--font-sans)',
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.background = 'var(--primary-50)';
-                        e.currentTarget.style.borderColor = 'var(--primary-300)';
+                        e.currentTarget.style.background = 'var(--accent)';
+                        e.currentTarget.style.borderColor = 'var(--primary)';
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.background = 'var(--gray-50)';
+                        e.currentTarget.style.background = 'var(--muted)';
                         e.currentTarget.style.borderColor = 'var(--border)';
                       }}
                     >
@@ -525,7 +525,7 @@ export default function Quiz() {
                       }}>
                         {opt.letter}
                       </span>
-                      <span style={{ color: 'var(--gray-700)', lineHeight: '1.5', fontSize: '0.9375rem' }}>
+                      <span style={{ color: 'var(--foreground)', lineHeight: '1.5', fontSize: '0.9375rem' }}>
                         {opt.text}
                       </span>
                     </button>
