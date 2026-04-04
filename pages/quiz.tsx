@@ -163,23 +163,23 @@ const TIE_COPY: Record<string, string> = {
 // ─── Helpers ───────────────────────────────────────────────────────────────
 
 function parseFootnotes(text: string, type: string): React.ReactNode {
-  const markerMap: Record<string, number> = { '¹': 1, '²': 2, '³': 3 };
-  const parts = text.split(/(\[([¹²³])\])/);
+  const markerMap: Record<string, number> = { '\u00B9': 1, '\u00B2': 2, '\u00B3': 3 };
+  // Single capturing group — split produces ['text', '¹', 'more'] with no duplicates
+  const parts = text.split(/\[([¹²³])\]/);
   return parts.map((part, i) => {
-    const marker = part.replace(/[\[\]]/g, '');
-    if (marker in markerMap) {
+    if (part in markerMap) {
       return (
         <sup key={i}>
           <a
-            href={`#ref-${type}-${markerMap[marker]}`}
+            href={`#ref-${type}-${markerMap[part]}`}
             style={{ color: 'var(--primary-600)', textDecoration: 'none', fontWeight: '500' }}
           >
-            {marker}
+            {part}
           </a>
         </sup>
       );
     }
-    return part.startsWith('[') ? null : part;
+    return part;
   });
 }
 
@@ -189,7 +189,7 @@ function TriggerChart({ scores, dominant }: { scores: Record<string, number>; do
   const total = 7;
   return (
     <div style={{
-      background: 'var(--gray-50)',
+      background: 'var(--muted)',
       border: '1px solid var(--border)',
       borderRadius: 'var(--radius)',
       padding: 'var(--space-6)',
@@ -314,11 +314,10 @@ function ResultSection({ type, scores, dominant }: { type: 'A' | 'B' | 'C'; scor
           <strong>References</strong>
         </p>
         {r.footnotes.map((fn, i) => {
-          const supChars = ['¹', '²', '³'];
-          const body = fn.replace(/^\[?[¹²³]\]?\s*/, '');
+          const body = fn.replace(/^\[?[^\]]*\]\s*/, '');
           return (
             <p key={i} id={`ref-${type}-${i + 1}`} style={{ fontSize: '0.75rem', color: 'var(--muted-foreground)', marginBottom: 'var(--space-1)' }}>
-              <sup>{supChars[i]}</sup> {body}
+              <sup>{i + 1}</sup> {body}
             </p>
           );
         })}
@@ -395,7 +394,7 @@ export default function Quiz() {
                 When feedback stings, it&rsquo;s usually for one of three reasons. Find out which one holds you back most — and what to do about it.
               </p>
 
-              <div className="card" style={{ background: 'white' }}>
+              <div className="card">
                 <p style={{ color: 'var(--foreground)' }}>
                   Most of us don&rsquo;t have a feedback problem. We have a <em>trigger</em> problem.
                 </p>

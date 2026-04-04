@@ -17,12 +17,12 @@ export default function HowTo() {
           textAlign: 'center'
         }}>
           <div className="container">
-            <h1 style={{ color: 'var(--foreground)', marginBottom: 'var(--space-6)' }}>
+            <h1 style={{ color: 'var(--primary-900)', marginBottom: 'var(--space-6)' }}>
               How to Start Being Open to Feedback
             </h1>
             <p style={{
               fontSize: '1.125rem',
-              color: 'var(--muted-foreground)',
+              color: 'var(--primary-800)',
               maxWidth: '600px',
               margin: '0 auto var(--space-6)'
             }}>
@@ -35,7 +35,7 @@ export default function HowTo() {
               display: 'inline-block'
             }}>
               <p style={{
-                color: 'var(--foreground)',
+                color: 'var(--primary-900)',
                 fontSize: '0.875rem',
                 margin: 0,
                 fontWeight: '500'
@@ -238,10 +238,10 @@ export default function HowTo() {
                 marginTop: 'var(--space-6)',
                 textAlign: 'center'
               }}>
-                <h3 style={{ color: 'var(--foreground)', marginBottom: 'var(--space-2)' }}>
+                <h3 style={{ color: 'var(--primary-900)', marginBottom: 'var(--space-2)' }}>
                   🔄 Repeat Steps 3 & 4 Continuously
                 </h3>
-                <p style={{ color: 'var(--foreground)', margin: 0 }}>
+                <p style={{ color: 'var(--primary-800)', margin: 0 }}>
                   Make this a regular practice, not a one-time activity
                 </p>
               </div>
@@ -291,16 +291,16 @@ export default function HowTo() {
               border: '1px solid var(--primary-200)'
             }}>
               <div className="card-header">
-                <h2 className="card-title" style={{ color: 'var(--foreground)' }}>
+                <h2 className="card-title" style={{ color: 'var(--primary-900)' }}>
                   ⏰ When's the Best Time to Ask for Feedback?
                 </h2>
               </div>
-              <p style={{ color: 'var(--foreground)' }}>
+              <p style={{ color: 'var(--primary-800)' }}>
                 The best time to ask for feedback is when you're <strong>"above the line"</strong> —
                 in a positive, open, and curious mindset. Being in this space helps reduce your natural
                 defensive response to potentially challenging feedback.
               </p>
-              <p style={{ color: 'var(--foreground)', marginBottom: 'var(--space-6)' }}>
+              <p style={{ color: 'var(--primary-800)', marginBottom: 'var(--space-6)' }}>
                 If you're feeling defensive, stressed, or overwhelmed, it might be better to wait until
                 you're in a more receptive state of mind.
               </p>
