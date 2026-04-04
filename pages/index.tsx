@@ -26,8 +26,8 @@ export default function Home() {
               flexWrap: 'wrap',
               marginTop: 'var(--space-8)'
             }}>
-              <Link href="/course" className="btn btn-primary btn-lg">
-                Join the Course
+              <Link href="/quiz" className="btn btn-primary btn-lg">
+                Take the Quiz
               </Link>
               <Link href="/how-to" className="btn btn-secondary btn-lg">
                 Get Started Free
@@ -152,7 +152,7 @@ export default function Home() {
         }}>
           <div className="container" style={{ textAlign: 'center' }}>
             <h2 style={{ color: 'var(--primary-900)', marginBottom: 'var(--space-6)' }}>
-              Ready to Transform How You Handle Feedback?
+              Find out what holds you back most
             </h2>
             <p style={{
               fontSize: '1.125rem',
@@ -160,11 +160,10 @@ export default function Home() {
               maxWidth: '600px',
               margin: '0 auto var(--space-8)'
             }}>
-              Join our course and learn the frameworks, tools, and mindset shifts that will help you
-              embrace feedback as your greatest catalyst for growth.
+              When feedback stings, it&apos;s usually for one of three reasons. Take the 2-minute quiz to find out which feedback trigger affects you most — and what to do about it.
             </p>
-            <Link href="/course" className="btn btn-primary btn-lg">
-              Get Started Today
+            <Link href="/quiz" className="btn btn-primary btn-lg">
+              Take the Quiz
             </Link>
           </div>
         </section>

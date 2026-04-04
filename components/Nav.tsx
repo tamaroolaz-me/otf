@@ -72,7 +72,7 @@ export default function Nav() {
                 </Link>
               ))}
             </div>
-            <Link href="/course" className="btn btn-primary">Join Course</Link>
+            <Link href="/quiz" className="btn btn-primary">Take the Quiz</Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -163,9 +163,9 @@ export default function Nav() {
             </Link>
           ))}
           <div style={{ marginTop: 'var(--space-6)' }}>
-            <Link href="/course" onClick={closeMenu} className="btn btn-primary"
+            <Link href="/quiz" onClick={closeMenu} className="btn btn-primary"
               style={{ width: '100%', justifyContent: 'center' }}>
-              Join Course
+              Take the Quiz
             </Link>
           </div>
         </div>

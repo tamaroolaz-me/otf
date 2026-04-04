@@ -160,6 +160,29 @@ const TIE_COPY: Record<string, string> = {
   'ABC': 'You\'re a well-rounded responder — you feel all three types of triggers fairly evenly. That means you\'ll find something useful in each of the three results below.',
 };
 
+// ─── Helpers ───────────────────────────────────────────────────────────────
+
+function parseFootnotes(text: string, type: string): React.ReactNode {
+  const markerMap: Record<string, number> = { '¹': 1, '²': 2, '³': 3 };
+  const parts = text.split(/(\[([¹²³])\])/);
+  return parts.map((part, i) => {
+    const marker = part.replace(/[\[\]]/g, '');
+    if (marker in markerMap) {
+      return (
+        <sup key={i}>
+          <a
+            href={`#ref-${type}-${markerMap[marker]}`}
+            style={{ color: 'var(--primary-600)', textDecoration: 'none', fontWeight: '500' }}
+          >
+            {marker}
+          </a>
+        </sup>
+      );
+    }
+    return part.startsWith('[') ? null : part;
+  });
+}
+
 // ─── Sub-components ────────────────────────────────────────────────────────
 
 function TriggerChart({ scores, dominant }: { scores: Record<string, number>; dominant: string[] }) {
@@ -237,7 +260,7 @@ function ResultSection({ type, scores, dominant }: { type: 'A' | 'B' | 'C'; scor
         What this means
       </h3>
       {r.what_this_means.map((p, i) => (
-        <p key={i} style={{ color: 'var(--gray-700)' }}>{p}</p>
+        <p key={i} style={{ color: 'var(--gray-700)' }}>{parseFootnotes(p, type)}</p>
       ))}
 
       <h3 style={{ fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--gray-500)' }}>
@@ -245,7 +268,7 @@ function ResultSection({ type, scores, dominant }: { type: 'A' | 'B' | 'C'; scor
       </h3>
       <ul style={{ marginBottom: 'var(--space-6)' }}>
         {r.what_gets_in_the_way.map((item, i) => (
-          <li key={i} style={{ color: 'var(--gray-700)', marginBottom: 'var(--space-2)' }}>{item}</li>
+          <li key={i} style={{ color: 'var(--gray-700)', marginBottom: 'var(--space-2)' }}>{parseFootnotes(item, type)}</li>
         ))}
       </ul>
 
@@ -255,7 +278,7 @@ function ResultSection({ type, scores, dominant }: { type: 'A' | 'B' | 'C'; scor
       {r.what_helps.map((tip, i) => (
         <div key={i} style={{ marginBottom: 'var(--space-4)' }}>
           <p style={{ fontWeight: '600', color: 'var(--gray-800)', marginBottom: 'var(--space-1)' }}>{tip.title}</p>
-          <p style={{ color: 'var(--gray-700)', marginBottom: 0 }}>{tip.body}</p>
+          <p style={{ color: 'var(--gray-700)', marginBottom: 0 }}>{parseFootnotes(tip.body, type)}</p>
         </div>
       ))}
 
@@ -290,11 +313,15 @@ function ResultSection({ type, scores, dominant }: { type: 'A' | 'B' | 'C'; scor
         <p style={{ fontSize: '0.75rem', color: 'var(--muted-foreground)', marginBottom: 'var(--space-2)' }}>
           <strong>References</strong>
         </p>
-        {r.footnotes.map((fn, i) => (
-          <p key={i} style={{ fontSize: '0.75rem', color: 'var(--muted-foreground)', marginBottom: 'var(--space-1)' }}>
-            {fn}
-          </p>
-        ))}
+        {r.footnotes.map((fn, i) => {
+          const supChars = ['¹', '²', '³'];
+          const body = fn.replace(/^\[?[¹²³]\]?\s*/, '');
+          return (
+            <p key={i} id={`ref-${type}-${i + 1}`} style={{ fontSize: '0.75rem', color: 'var(--muted-foreground)', marginBottom: 'var(--space-1)' }}>
+              <sup>{supChars[i]}</sup> {body}
+            </p>
+          );
+        })}
       </div>
     </div>
   );
@@ -376,7 +403,7 @@ export default function Quiz() {
                   When critical feedback lands badly, it&rsquo;s not usually because we&rsquo;re defensive or fragile. It&rsquo;s because something specific about that feedback — the content, the person, or what it implies about us — sets off a protective reaction we can&rsquo;t always control.
                 </p>
                 <p style={{ color: 'var(--gray-700)' }}>
-                  Researchers have identified three distinct types of feedback trigger, and most people have one they&rsquo;re especially prone to.[¹]
+                  Researchers have identified three distinct types of feedback trigger, and most people have one they&rsquo;re especially prone to.<sup><a href="#intro-ref-1" style={{ color: 'var(--primary-600)', textDecoration: 'none', fontWeight: '500' }}>¹</a></sup>
                 </p>
                 <p style={{ color: 'var(--gray-700)', marginBottom: 'var(--space-6)' }}>
                   This 7-question quiz will help you identify yours — and give you a personalised set of strategies to handle it better.
@@ -401,8 +428,8 @@ export default function Quiz() {
               </div>
 
               <div style={{ marginTop: 'var(--space-4)', paddingLeft: 'var(--space-4)' }}>
-                <p style={{ fontSize: '0.75rem', color: 'var(--primary-700)' }}>
-                  [¹] Stone, D. &amp; Heen, S. (2014). <em>Thanks for the Feedback: The Science and Art of Receiving Feedback Well</em>. Portfolio/Penguin.
+                <p id="intro-ref-1" style={{ fontSize: '0.75rem', color: 'var(--primary-700)' }}>
+                  <sup>¹</sup> Stone, D. &amp; Heen, S. (2014). <em>Thanks for the Feedback: The Science and Art of Receiving Feedback Well</em>. Portfolio/Penguin.
                 </p>
               </div>
             </div>

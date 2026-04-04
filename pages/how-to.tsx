@@ -305,8 +305,8 @@ export default function HowTo() {
                 you're in a more receptive state of mind.
               </p>
               <div style={{ textAlign: 'center' }}>
-                <Link href="/course" className="btn btn-primary">
-                  Ready to Go Deeper? Join Our Course
+                <Link href="/quiz" className="btn btn-primary">
+                  Take the Quiz
                 </Link>
               </div>
             </div>

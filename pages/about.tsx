@@ -165,8 +165,8 @@ export default function About() {
                 >
                   Share Your Feedback
                 </a>
-                <Link href="/course" className="btn btn-secondary">
-                  Join the Course
+                <Link href="/quiz" className="btn btn-secondary">
+                  Take the Quiz
                 </Link>
               </div>
             </div>
