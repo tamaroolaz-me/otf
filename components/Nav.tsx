@@ -47,6 +47,7 @@ export default function Nav() {
             <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-6)' }}>
               {[
                 { href: '/', label: 'Home' },
+                { href: '/quiz', label: 'Take the Quiz' },
                 { href: '/how-to', label: 'How To' },
                 { href: '/what-is-feedback', label: 'What is Feedback' },
                 { href: '/about', label: 'About' },
@@ -144,6 +145,7 @@ export default function Nav() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
           {[
             { href: '/', label: 'Home' },
+            { href: '/quiz', label: 'Take the Quiz' },
             { href: '/how-to', label: 'How To' },
             { href: '/what-is-feedback', label: 'What is Feedback' },
             { href: '/about', label: 'About' },
