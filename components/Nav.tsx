@@ -4,17 +4,11 @@ import { useState } from 'react';
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <>
-      {/* Modern Header */}
       <header style={{
         position: 'fixed',
         top: 0,
@@ -34,7 +28,6 @@ export default function Nav() {
           justifyContent: 'space-between',
           height: '70px',
         }}>
-          {/* Logo/Brand */}
           <Link href="/" style={{
             fontSize: '1.5rem',
             fontWeight: '700',
@@ -46,103 +39,46 @@ export default function Nav() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav style={{
+          <nav className="desktop-nav" style={{
             display: 'flex',
             alignItems: 'center',
             gap: 'var(--space-8)',
           }}>
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 'var(--space-6)',
-            }}>
-              <Link href="/" style={{
-                color: 'var(--muted-foreground)',
-                fontWeight: '500',
-                textDecoration: 'none',
-                transition: 'color 0.2s ease',
-                padding: 'var(--space-2) var(--space-3)',
-                borderRadius: 'var(--radius)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = 'var(--primary)';
-                e.currentTarget.style.background = 'var(--accent)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = 'var(--muted-foreground)';
-                e.currentTarget.style.background = 'transparent';
-              }}>
-                Home
-              </Link>
-              <Link href="/how-to" style={{
-                color: 'var(--muted-foreground)',
-                fontWeight: '500',
-                textDecoration: 'none',
-                transition: 'color 0.2s ease',
-                padding: 'var(--space-2) var(--space-3)',
-                borderRadius: 'var(--radius)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = 'var(--primary)';
-                e.currentTarget.style.background = 'var(--accent)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = 'var(--muted-foreground)';
-                e.currentTarget.style.background = 'transparent';
-              }}>
-                How To
-              </Link>
-              <Link href="/what-is-feedback" style={{
-                color: 'var(--muted-foreground)',
-                fontWeight: '500',
-                textDecoration: 'none',
-                transition: 'color 0.2s ease',
-                padding: 'var(--space-2) var(--space-3)',
-                borderRadius: 'var(--radius)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = 'var(--primary)';
-                e.currentTarget.style.background = 'var(--accent)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = 'var(--muted-foreground)';
-                e.currentTarget.style.background = 'transparent';
-              }}>
-                What is Feedback
-              </Link>
-              <Link href="/about" style={{
-                color: 'var(--muted-foreground)',
-                fontWeight: '500',
-                textDecoration: 'none',
-                transition: 'color 0.2s ease',
-                padding: 'var(--space-2) var(--space-3)',
-                borderRadius: 'var(--radius)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = 'var(--primary)';
-                e.currentTarget.style.background = 'var(--accent)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = 'var(--muted-foreground)';
-                e.currentTarget.style.background = 'transparent';
-              }}>
-                About
-              </Link>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-6)' }}>
+              {[
+                { href: '/', label: 'Home' },
+                { href: '/how-to', label: 'How To' },
+                { href: '/what-is-feedback', label: 'What is Feedback' },
+                { href: '/about', label: 'About' },
+              ].map(({ href, label }) => (
+                <Link key={href} href={href} style={{
+                  color: 'var(--muted-foreground)',
+                  fontWeight: '500',
+                  textDecoration: 'none',
+                  transition: 'color 0.2s ease',
+                  padding: 'var(--space-2) var(--space-3)',
+                  borderRadius: 'var(--radius)',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = 'var(--primary)';
+                  e.currentTarget.style.background = 'var(--accent)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = 'var(--muted-foreground)';
+                  e.currentTarget.style.background = 'transparent';
+                }}>
+                  {label}
+                </Link>
+              ))}
             </div>
-            
-            {/* CTA Button */}
-            <Link href="/course" className="btn btn-primary">
-              Join Course
-            </Link>
+            <Link href="/course" className="btn btn-primary">Join Course</Link>
           </nav>
 
           {/* Mobile Menu Button */}
           <button
+            className="mobile-menu-btn"
             onClick={toggleMenu}
             style={{
-              display: 'none',
-              position: 'relative',
-              zIndex: 1001,
               background: 'var(--primary)',
               color: 'white',
               border: 'none',
@@ -153,209 +89,105 @@ export default function Nav() {
               justifyContent: 'space-around',
               width: '40px',
               height: '40px',
-              transition: 'all 0.3s ease',
             }}
             aria-label="Toggle menu"
           >
-            <span
-              style={{
-                display: 'block',
-                height: '2px',
-                width: '20px',
-                background: 'white',
-                borderRadius: '1px',
-                transition: 'all 0.3s ease',
-                transform: isMenuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none',
-              }}
-            />
-            <span
-              style={{
-                display: 'block',
-                height: '2px',
-                width: '20px',
-                background: 'white',
-                borderRadius: '1px',
-                transition: 'all 0.3s ease',
-                opacity: isMenuOpen ? 0 : 1,
-              }}
-            />
-            <span
-              style={{
-                display: 'block',
-                height: '2px',
-                width: '20px',
-                background: 'white',
-                borderRadius: '1px',
-                transition: 'all 0.3s ease',
-                transform: isMenuOpen ? 'rotate(-45deg) translate(7px, -6px)' : 'none',
-              }}
-            />
+            <span style={{
+              display: 'block', height: '2px', width: '20px', background: 'white',
+              borderRadius: '1px', transition: 'all 0.3s ease',
+              transform: isMenuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none',
+            }} />
+            <span style={{
+              display: 'block', height: '2px', width: '20px', background: 'white',
+              borderRadius: '1px', transition: 'all 0.3s ease',
+              opacity: isMenuOpen ? 0 : 1,
+            }} />
+            <span style={{
+              display: 'block', height: '2px', width: '20px', background: 'white',
+              borderRadius: '1px', transition: 'all 0.3s ease',
+              transform: isMenuOpen ? 'rotate(-45deg) translate(7px, -6px)' : 'none',
+            }} />
           </button>
         </div>
       </header>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Overlay */}
       {isMenuOpen && (
         <div
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: 'rgba(0, 0, 0, 0.5)',
-            zIndex: 999,
-            display: 'none',
-          }}
+          className="mobile-overlay"
           onClick={closeMenu}
+          style={{
+            position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
+            background: 'rgba(0, 0, 0, 0.5)', zIndex: 999,
+          }}
         />
       )}
 
       {/* Mobile Menu Panel */}
       <nav
+        className="mobile-nav"
         style={{
           position: 'fixed',
           top: 0,
           right: isMenuOpen ? 0 : '-100%',
           width: '280px',
           height: '100vh',
-          background: 'var(--card)',
+          background: 'white',
           borderLeft: '1px solid var(--border)',
           zIndex: 1000,
           transition: 'right 0.3s ease',
           padding: 'var(--space-20) var(--space-6) var(--space-6)',
           boxShadow: isMenuOpen ? 'var(--shadow-xl)' : 'none',
-          display: 'none',
+          overflowY: 'auto',
         }}
       >
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 'var(--space-2)',
-          }}
-        >
-          <Link
-            href="/"
-            onClick={closeMenu}
-            style={{
-              padding: 'var(--space-4) var(--space-4)',
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
+          {[
+            { href: '/', label: 'Home' },
+            { href: '/how-to', label: 'How To' },
+            { href: '/what-is-feedback', label: 'What is Feedback' },
+            { href: '/about', label: 'About' },
+          ].map(({ href, label }) => (
+            <Link key={href} href={href} onClick={closeMenu} style={{
+              padding: 'var(--space-4)',
               borderRadius: 'var(--radius)',
-              transition: 'all 0.2s ease',
               fontSize: '1rem',
               fontWeight: '500',
-              color: 'var(--foreground)',
+              color: '#111',
               textDecoration: 'none',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--accent)';
-              e.currentTarget.style.color = 'var(--primary)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'transparent';
-              e.currentTarget.style.color = 'var(--foreground)';
-            }}
-          >
-            Home
-          </Link>
-          <Link
-            href="/how-to"
-            onClick={closeMenu}
-            style={{
-              padding: 'var(--space-4) var(--space-4)',
-              borderRadius: 'var(--radius)',
-              transition: 'all 0.2s ease',
-              fontSize: '1rem',
-              fontWeight: '500',
-              color: 'var(--foreground)',
-              textDecoration: 'none',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--accent)';
-              e.currentTarget.style.color = 'var(--primary)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'transparent';
-              e.currentTarget.style.color = 'var(--foreground)';
-            }}
-          >
-            How To
-          </Link>
-          <Link
-            href="/what-is-feedback"
-            onClick={closeMenu}
-            style={{
-              padding: 'var(--space-4) var(--space-4)',
-              borderRadius: 'var(--radius)',
-              transition: 'all 0.2s ease',
-              fontSize: '1rem',
-              fontWeight: '500',
-              color: 'var(--foreground)',
-              textDecoration: 'none',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--accent)';
-              e.currentTarget.style.color = 'var(--primary)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'transparent';
-              e.currentTarget.style.color = 'var(--foreground)';
-            }}
-          >
-            What is Feedback
-          </Link>
-          <Link
-            href="/about"
-            onClick={closeMenu}
-            style={{
-              padding: 'var(--space-4) var(--space-4)',
-              borderRadius: 'var(--radius)',
-              transition: 'all 0.2s ease',
-              fontSize: '1rem',
-              fontWeight: '500',
-              color: 'var(--foreground)',
-              textDecoration: 'none',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--accent)';
-              e.currentTarget.style.color = 'var(--primary)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'transparent';
-              e.currentTarget.style.color = 'var(--foreground)';
-            }}
-          >
-            About
-          </Link>
+              display: 'block',
+            }}>
+              {label}
+            </Link>
+          ))}
           <div style={{ marginTop: 'var(--space-6)' }}>
-            <Link
-              href="/course"
-              onClick={closeMenu}
-              className="btn btn-primary"
-              style={{ width: '100%', justifyContent: 'center' }}
-            >
+            <Link href="/course" onClick={closeMenu} className="btn btn-primary"
+              style={{ width: '100%', justifyContent: 'center' }}>
               Join Course
             </Link>
           </div>
         </div>
       </nav>
 
-      {/* Add responsive styles */}
       <style jsx>{`
+        .desktop-nav {
+          display: flex;
+        }
+        .mobile-menu-btn {
+          display: none;
+        }
+        .mobile-nav {
+          display: none;
+        }
+
         @media (max-width: 768px) {
-          nav > div:first-child {
+          .desktop-nav {
             display: none !important;
           }
-          
-          button[aria-label="Toggle menu"] {
+          .mobile-menu-btn {
             display: flex !important;
           }
-          
-          nav[style*="right:"] {
-            display: block !important;
-          }
-          
-          div[style*="rgba(0, 0, 0, 0.5)"] {
+          .mobile-nav {
             display: block !important;
           }
         }
