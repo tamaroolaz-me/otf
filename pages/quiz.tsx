@@ -344,11 +344,25 @@ export default function Quiz() {
   const tieKey = dominant.length > 1 ? dominant.join('') : null;
 
   function handleAnswer(letter: string) {
+    const stepNumber = currentQ + 1;
+    const stepLabel = QUESTIONS[currentQ].text;
+    const gtag = typeof window !== 'undefined' ? (window as unknown as Record<string, unknown>).gtag as ((...args: unknown[]) => void) | undefined : undefined;
+
+    gtag?.('event', 'quiz_step_complete', {
+      quiz_name: 'main_site_quiz',
+      step_number: stepNumber,
+      step_label: stepLabel,
+    });
+
     const next = [...answers, letter];
     setAnswers(next);
+
     if (currentQ < QUESTIONS.length - 1) {
       setCurrentQ(currentQ + 1);
     } else {
+      gtag?.('event', 'quiz_complete', {
+        quiz_name: 'main_site_quiz',
+      });
       setPhase('result');
     }
   }
