@@ -162,11 +162,20 @@ const TIE_COPY: Record<string, string> = {
 
 // ─── Helpers ───────────────────────────────────────────────────────────────
 
-function shuffleQuestions(questions: typeof QUESTIONS) {
-  return questions.map((q) => ({
-    ...q,
-    options: [...q.options].sort(() => Math.random() - 0.5),
-  }));
+const DISPLAY_LABELS = ['A', 'B', 'C'] as const;
+
+function prepareQuestions(questions: typeof QUESTIONS, shuffle: boolean) {
+  return questions.map((q) => {
+    const opts = shuffle ? [...q.options].sort(() => Math.random() - 0.5) : q.options;
+    return {
+      text: q.text,
+      options: opts.map((opt, i) => ({
+        label: DISPLAY_LABELS[i],
+        text: opt.text,
+        trigger: opt.letter,
+      })),
+    };
+  });
 }
 
 function parseFootnotes(text: string, type: string): React.ReactNode {
@@ -400,7 +409,7 @@ export default function Quiz() {
   const [currentQ, setCurrentQ] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
   const [selectedTrigger, setSelectedTrigger] = useState<'A' | 'B' | 'C'>('A');
-  const [activeQuestions, setActiveQuestions] = useState(QUESTIONS);
+  const [activeQuestions, setActiveQuestions] = useState(() => prepareQuestions(QUESTIONS, false));
 
   const scores = { A: 0, B: 0, C: 0 };
   answers.forEach((a) => { if (a in scores) scores[a as keyof typeof scores]++; });
@@ -452,7 +461,7 @@ export default function Quiz() {
     setPhase('intro');
     setCurrentQ(0);
     setAnswers([]);
-    setActiveQuestions(QUESTIONS);
+    setActiveQuestions(prepareQuestions(QUESTIONS, false));
   }
 
   return (
@@ -498,7 +507,7 @@ export default function Quiz() {
                 <div style={{ textAlign: 'center' }}>
                   <button
                     className="btn btn-primary btn-lg"
-                    onClick={() => { setActiveQuestions(shuffleQuestions(QUESTIONS)); setPhase('quiz'); }}
+                    onClick={() => { setActiveQuestions(prepareQuestions(QUESTIONS, true)); setPhase('quiz'); }}
                   >
                     Find out my trigger type →
                   </button>
@@ -571,8 +580,8 @@ export default function Quiz() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
                   {activeQuestions[currentQ].options.map((opt) => (
                     <button
-                      key={opt.letter}
-                      onClick={() => handleAnswer(opt.letter)}
+                      key={opt.label}
+                      onClick={() => handleAnswer(opt.trigger)}
                       style={{
                         display: 'flex',
                         alignItems: 'flex-start',
@@ -609,7 +618,7 @@ export default function Quiz() {
                         alignItems: 'center',
                         justifyContent: 'center',
                       }}>
-                        {opt.letter}
+                        {opt.label}
                       </span>
                       <span style={{ color: 'var(--foreground)', lineHeight: '1.5', fontSize: '0.9375rem' }}>
                         {opt.text}
