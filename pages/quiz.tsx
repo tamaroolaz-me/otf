@@ -65,7 +65,7 @@ const QUESTIONS = [
 
 const RESULTS = {
   A: {
-    headline: 'Your trigger is a Truth Trigger',
+    headline: 'More about the Truth Trigger',
     subheadline: 'You\'re most thrown off when feedback feels factually wrong — and your instinct is to correct the record.',
     what_this_means: [
       'When feedback stings for you, it\'s usually because it doesn\'t match your reality. You have data they don\'t have, or you interpret the same events very differently. Your first move is often to mentally (or verbally) work out why they\'ve got it wrong — and until you can do that, the feedback is hard to sit with.',
@@ -93,7 +93,7 @@ const RESULTS = {
     ],
   },
   B: {
-    headline: 'Your trigger is a Relationship Trigger',
+    headline: 'More about the Relationship Trigger',
     subheadline: 'You\'re most thrown off by who gave the feedback, or how they gave it — not necessarily what they said.',
     what_this_means: [
       'When feedback is hard for you to take, it\'s often less about the content and more about the messenger. You might be thinking: they\'re not qualified to say that, or they didn\'t need to say it like that, or they have their own issues. You find it difficult to separate what was said from your feelings about the person who said it.',
@@ -119,7 +119,7 @@ const RESULTS = {
     ],
   },
   C: {
-    headline: 'Your trigger is an Identity Trigger',
+    headline: 'More about the Identity Trigger',
     subheadline: 'You\'re most thrown off when feedback touches your sense of who you are — and one comment can feel like it says everything about you.',
     what_this_means: [
       'When feedback lands badly for you, it rarely stays contained to the specific thing being criticised. It tends to spread — from "this piece of work wasn\'t great" to "I\'m not good enough", from "they noticed one mistake" to "everyone must think I\'m incompetent." The feedback becomes about your worth, not just your work.',
@@ -162,6 +162,13 @@ const TIE_COPY: Record<string, string> = {
 
 // ─── Helpers ───────────────────────────────────────────────────────────────
 
+function shuffleQuestions(questions: typeof QUESTIONS) {
+  return questions.map((q) => ({
+    ...q,
+    options: [...q.options].sort(() => Math.random() - 0.5),
+  }));
+}
+
 function parseFootnotes(text: string, type: string): React.ReactNode {
   const markerMap: Record<string, number> = { '\u00B9': 1, '\u00B2': 2, '\u00B3': 3 };
   // Single capturing group — split produces ['text', '¹', 'more'] with no duplicates
@@ -185,8 +192,14 @@ function parseFootnotes(text: string, type: string): React.ReactNode {
 
 // ─── Sub-components ────────────────────────────────────────────────────────
 
-function TriggerChart({ scores, dominant }: { scores: Record<string, number>; dominant: string[] }) {
+function TriggerChart({ scores, dominant, selected, onSelect }: {
+  scores: Record<string, number>;
+  dominant: string[];
+  selected: 'A' | 'B' | 'C';
+  onSelect: (key: 'A' | 'B' | 'C') => void;
+}) {
   const total = 7;
+
   return (
     <div style={{
       background: 'var(--muted)',
@@ -202,18 +215,33 @@ function TriggerChart({ scores, dominant }: { scores: Record<string, number>; do
       <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
         {(['A', 'B', 'C'] as const).map((key) => {
           const isHighlighted = dominant.includes(key);
+          const isSelected = selected === key;
           const pct = (scores[key] / total) * 100;
           return (
             <div key={key} style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)' }}>
-              <span style={{
-                width: '90px',
-                flexShrink: 0,
-                fontSize: '0.875rem',
-                fontWeight: isHighlighted ? '600' : '400',
-                color: isHighlighted ? 'var(--primary-700)' : 'var(--muted-foreground)',
-              }}>
+              <button
+                onClick={() => onSelect(key)}
+                style={{
+                  width: '90px',
+                  flexShrink: 0,
+                  fontSize: '0.875rem',
+                  fontWeight: isHighlighted ? '600' : '400',
+                  color: isSelected ? 'var(--primary-700)' : isHighlighted ? 'var(--primary-600)' : 'var(--muted-foreground)',
+                  background: isSelected ? 'var(--primary-100)' : 'transparent',
+                  border: isSelected ? '1px solid var(--primary-300)' : '1px solid transparent',
+                  borderRadius: 'var(--radius-sm, 4px)',
+                  padding: '2px var(--space-2)',
+                  cursor: 'pointer',
+                  textAlign: 'left',
+                  fontFamily: 'var(--font-sans)',
+                  transition: 'all 0.15s ease',
+                  textDecorationLine: isSelected ? 'none' : 'underline',
+                  textDecorationColor: 'var(--border)',
+                  textUnderlineOffset: '2px',
+                }}
+              >
                 {TRIGGER_LABELS[key]}
-              </span>
+              </button>
               <div style={{
                 flex: 1,
                 background: 'var(--gray-200)',
@@ -242,6 +270,43 @@ function TriggerChart({ scores, dominant }: { scores: Record<string, number>; do
             </div>
           );
         })}
+      </div>
+
+      <div style={{
+        marginTop: 'var(--space-5)',
+        paddingTop: 'var(--space-4)',
+        borderTop: '1px solid var(--border)',
+      }}>
+        <p style={{
+          fontSize: '0.875rem',
+          fontWeight: '600',
+          color: 'var(--primary-700)',
+          marginBottom: 'var(--space-1)',
+          marginTop: 0,
+        }}>
+          {TRIGGER_LABELS[dominant[0]]} trigger
+          {dominant.length === 1 && (
+            <span style={{
+              marginLeft: 'var(--space-2)',
+              fontSize: '0.75rem',
+              fontWeight: '500',
+              background: 'var(--primary-200)',
+              color: 'var(--primary-800)',
+              borderRadius: '999px',
+              padding: '1px 8px',
+            }}>
+              your main trigger
+            </span>
+          )}
+        </p>
+        <p style={{
+          fontSize: '0.875rem',
+          color: 'var(--foreground)',
+          margin: 0,
+          fontStyle: 'italic',
+        }}>
+          {RESULTS[dominant[0] as 'A' | 'B' | 'C'].subheadline}
+        </p>
       </div>
     </div>
   );
@@ -334,6 +399,8 @@ export default function Quiz() {
   const [phase, setPhase] = useState<Phase>('intro');
   const [currentQ, setCurrentQ] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
+  const [selectedTrigger, setSelectedTrigger] = useState<'A' | 'B' | 'C'>('A');
+  const [activeQuestions, setActiveQuestions] = useState(QUESTIONS);
 
   const scores = { A: 0, B: 0, C: 0 };
   answers.forEach((a) => { if (a in scores) scores[a as keyof typeof scores]++; });
@@ -363,6 +430,11 @@ export default function Quiz() {
       gtag?.('event', 'quiz_complete', {
         quiz_name: 'main_site_quiz',
       });
+      const nextScores = { A: 0, B: 0, C: 0 };
+      next.forEach((a) => { if (a in nextScores) nextScores[a as 'A' | 'B' | 'C']++; });
+      const nextMax = Math.max(nextScores.A, nextScores.B, nextScores.C);
+      const nextDominant = (['A', 'B', 'C'] as const).filter((k) => nextScores[k] === nextMax);
+      setSelectedTrigger(nextDominant[0]);
       setPhase('result');
     }
   }
@@ -380,6 +452,7 @@ export default function Quiz() {
     setPhase('intro');
     setCurrentQ(0);
     setAnswers([]);
+    setActiveQuestions(QUESTIONS);
   }
 
   return (
@@ -425,7 +498,7 @@ export default function Quiz() {
                 <div style={{ textAlign: 'center' }}>
                   <button
                     className="btn btn-primary btn-lg"
-                    onClick={() => setPhase('quiz')}
+                    onClick={() => { setActiveQuestions(shuffleQuestions(QUESTIONS)); setPhase('quiz'); }}
                   >
                     Find out my trigger type →
                   </button>
@@ -492,11 +565,11 @@ export default function Quiz() {
                   color: 'var(--foreground)',
                   marginBottom: 'var(--space-6)',
                 }}>
-                  {QUESTIONS[currentQ].text}
+                  {activeQuestions[currentQ].text}
                 </p>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
-                  {QUESTIONS[currentQ].options.map((opt) => (
+                  {activeQuestions[currentQ].options.map((opt) => (
                     <button
                       key={opt.letter}
                       onClick={() => handleAnswer(opt.letter)}
@@ -578,7 +651,7 @@ export default function Quiz() {
                 Your results
               </p>
 
-              <TriggerChart scores={scores} dominant={dominant} />
+              <TriggerChart scores={scores} dominant={dominant} selected={selectedTrigger} onSelect={setSelectedTrigger} />
 
               {/* Tie intro copy */}
               {tieKey && (
@@ -596,14 +669,12 @@ export default function Quiz() {
               )}
 
               {/* Result(s) */}
-              {dominant.map((type) => (
-                <ResultSection
-                  key={type}
-                  type={type as 'A' | 'B' | 'C'}
-                  scores={scores}
-                  dominant={dominant}
-                />
-              ))}
+              <ResultSection
+                key={selectedTrigger}
+                type={selectedTrigger}
+                scores={scores}
+                dominant={dominant}
+              />
 
               {/* Footer CTA */}
               <div style={{
