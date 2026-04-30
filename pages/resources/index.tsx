@@ -125,6 +125,22 @@ function ResourceCard({ resource }: { resource: Resource }) {
         >
           {meta.emoji} {meta.label}
         </span>
+        <span
+          style={{
+            position: "absolute",
+            top: "var(--space-3)",
+            right: "var(--space-3)",
+            background: "rgba(0,0,0,0.55)",
+            color: "#fff",
+            fontSize: "0.75rem",
+            fontWeight: 600,
+            padding: "var(--space-1) var(--space-3)",
+            borderRadius: 999,
+            fontFamily: "var(--font-sans)",
+          }}
+        >
+          ⏱ {resource.timeToComplete}
+        </span>
       </div>
       <div
         style={{
