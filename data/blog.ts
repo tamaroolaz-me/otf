@@ -19,7 +19,7 @@ export const posts: BlogPost[] = [
     featured: true,
     timeToRead: "~5 min",
     publishedAt: "2026-04-30",
-    thumbnail: "/images/blog-placeholder.svg",
+    thumbnail: "/images/lessons-from-ai-prompting-feedback.png",
     tags: ["Giving feedback"],
     body: `If you've spent any time trying to get Claude to write a decent email or ChatGPT to analyze a complex spreadsheet, you've likely realized that **AI isn't a mind reader.** It's a reflection of the clarity of your instructions.
 
