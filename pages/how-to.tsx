@@ -1,6 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import Nav from '../components/Nav';
+import { resources, CATEGORY_META } from '../data/resources';
+
+const featuredResources = resources.filter((r) => r.featured);
 
 export default function HowTo() {
   return (
@@ -73,38 +76,17 @@ export default function HowTo() {
                   1
                 </div>
                 <h2 style={{ margin: 0, color: 'var(--foreground)' }}>
-                  Understand What It Means & Why It's Valuable
+                  Understand what feedback is, when and why it's valuable
                 </h2>
               </div>
-              
+
               <p style={{ marginBottom: 'var(--space-6)' }}>
-                Start by listening to this excellent podcast: <strong>How to Love Criticism</strong> from <em>WorkLife with Adam Grant</em>
+                Criticism triggers a real physiological pain response. Your ego will try to filter out what it doesn't want to hear. Start your path to understanding by listening to the podcast episode <em>'How to Love Criticism'</em> that explains why feedback is triggering and what you can do about it.
               </p>
               
-              <div style={{
-                background: 'var(--accent)',
-                padding: 'var(--space-4)',
-                borderRadius: 'var(--radius)',
-                border: '1px solid var(--primary-200)'
-              }}>
-                <h4 style={{ color: 'var(--foreground)', marginBottom: 'var(--space-3)' }}>
-                  🎧 Listen on:
-                </h4>
-                <div style={{ display: 'flex', gap: 'var(--space-4)', flexWrap: 'wrap' }}>
-                  <a href="https://podcasts.apple.com/us/podcast/how-to-love-criticism/id1346314086?i=1000454230157"
-                     target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-                    Apple Podcasts
-                  </a>
-                  <a href="https://www.stitcher.com/show/worklife-with-adam-grant/episode/how-to-love-criticism-64883776"
-                     target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-                    Stitcher
-                  </a>
-                  <a href="https://www.ted.com/podcasts/worklife/how-to-love-criticism"
-                     target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-                    TED
-                  </a>
-                </div>
-              </div>
+              <Link href="/resources/how-to-love-criticism" className="btn btn-primary">
+                🎧 Listen now →
+              </Link>
             </div>
 
             {/* Step 2 */}
@@ -130,22 +112,17 @@ export default function HowTo() {
                   2
                 </div>
                 <h2 style={{ margin: 0, color: 'var(--foreground)' }}>
-                  Make a Personal Commitment
+                  Build your challenge network
                 </h2>
               </div>
-              
-              <p>
-                Write down your commitment to being more open to feedback. Reflect on what this means to you personally.
+
+              <p style={{ marginBottom: 'var(--space-6)' }}>
+                Identify one or two people in your life who will push back on you honestly. Not your cheerleaders, the people who'll tell you what you need to hear. That's your challenge network. Then make it easy for them by explicitly asking them to give you feedback regularly, not just when something goes wrong.
               </p>
-              <p>
-                Consider making yourself accountable by adding "Open to Feedback" to visible places like:
-              </p>
-              <ul style={{ marginLeft: 'var(--space-6)' }}>
-                <li>Your Slack status</li>
-                <li>Email signature</li>
-                <li>LinkedIn profile</li>
-                <li>Team bio or introduction</li>
-              </ul>
+
+              <Link href="/resources/build-your-challenge-network" className="btn btn-primary">
+                📄 Download the guide →
+              </Link>
             </div>
 
             {/* Step 3 */}
@@ -179,10 +156,8 @@ export default function HowTo() {
                 Start small and build your comfort level. Here are some practical ways to begin:
               </p>
               <ul style={{ marginLeft: 'var(--space-6)' }}>
-                <li>Start conversations by directly asking for feedback</li>
-                <li>Create a simple Google Form where people can share feedback anonymously</li>
                 <li>Ask specific questions like "What's one thing I could do better?"</li>
-                <li>Request feedback after meetings, presentations, or projects</li>
+                <li>Send a short feedback form after meetings, presentations, or projects</li>
               </ul>
             </div>
 
@@ -213,8 +188,14 @@ export default function HowTo() {
                 </h2>
               </div>
               
+              <h3 style={{ marginBottom: 'var(--space-3)', color: 'var(--foreground)' }}>
+                Give yourself a second score
+              </h3>
               <p>
-                Don't just collect feedback—process it thoughtfully. Ask yourself:
+                When feedback arrives, notice how well you received it. The first score is the feedback itself, you can't change it. The second score is how you responded to it. Were you open or defensive? Did you listen or shut down? That second score is the one you can actually work on. After each feedback conversation, ask yourself: how did I take that?
+              </p>
+              <p style={{ marginTop: 'var(--space-4)' }}>
+                Now unpack the feedback. Process it thoughtfully. Ask yourself:
               </p>
               <div style={{
                 background: 'var(--accent)',
@@ -230,58 +211,90 @@ export default function HowTo() {
                   <li style={{ color: 'var(--foreground)' }}>What patterns am I seeing across different feedback sources?</li>
                 </ul>
               </div>
-              
-              <div style={{
-                background: 'var(--primary-100)',
-                padding: 'var(--space-4)',
-                borderRadius: 'var(--radius)',
-                marginTop: 'var(--space-6)',
-                textAlign: 'center'
-              }}>
-                <h3 style={{ color: 'var(--primary-900)', marginBottom: 'var(--space-2)' }}>
-                  🔄 Repeat Steps 3 & 4 Continuously
-                </h3>
-                <p style={{ color: 'var(--primary-800)', margin: 0 }}>
-                  Make this a regular practice, not a one-time activity
-                </p>
-              </div>
             </div>
 
             {/* Resources Section */}
-            <div className="card" style={{ marginBottom: 'var(--space-8)' }}>
-              <div className="card-header">
-                <h2 className="card-title">📚 Recommended Resources</h2>
-              </div>
-              
+            <div style={{ marginBottom: 'var(--space-8)' }}>
+              <h2 style={{ marginBottom: 'var(--space-6)' }}>📚 Recommended Resources</h2>
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-                gap: 'var(--space-6)'
+                gridTemplateColumns: 'repeat(3, 1fr)',
+                gap: 'var(--space-5)',
+                marginBottom: 'var(--space-6)'
               }}>
-                <div>
-                  <h4 style={{ color: 'var(--foreground)', marginBottom: 'var(--space-3)' }}>📺 Watch</h4>
-                  <ul style={{ marginLeft: 'var(--space-4)' }}>
-                    <li><em>Brené Brown: The Call to Courage</em> (Netflix)</li>
-                  </ul>
-                </div>
-                
-                <div>
-                  <h4 style={{ color: 'var(--foreground)', marginBottom: 'var(--space-3)' }}>🎧 Listen</h4>
-                  <ul style={{ marginLeft: 'var(--space-4)' }}>
-                    <li><em>Leading Above the Line</em></li>
-                  </ul>
-                </div>
-                
-                <div>
-                  <h4 style={{ color: 'var(--foreground)', marginBottom: 'var(--space-3)' }}>📖 Read</h4>
-                  <ul style={{ marginLeft: 'var(--space-4)' }}>
-                    <li><em>Thanks for the Feedback</em> – Douglas Stone & Sheila Heen</li>
-                    <li><em>Radical Candor</em> – Kim Scott</li>
-                    <li><em>The Four Agreements</em> – Don Miguel Ruiz</li>
-                    <li><em>Drive</em> – Daniel H. Pink</li>
-                    <li><em>Thinking, Fast and Slow</em> – Daniel Kahneman</li>
-                  </ul>
-                </div>
+                {featuredResources.map((resource) => {
+                  const meta = CATEGORY_META[resource.category];
+                  return (
+                    <Link
+                      key={resource.slug}
+                      href={`/resources/${resource.slug}`}
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        background: 'var(--card)',
+                        border: '1px solid var(--border)',
+                        borderRadius: 'var(--radius)',
+                        boxShadow: 'var(--shadow-sm)',
+                        overflow: 'hidden',
+                        textDecoration: 'none',
+                        color: 'inherit',
+                        transition: 'box-shadow 0.2s ease, transform 0.2s ease',
+                      }}
+                      onMouseEnter={(e) => {
+                        (e.currentTarget as HTMLElement).style.boxShadow = 'var(--shadow-lg)';
+                        (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)';
+                      }}
+                      onMouseLeave={(e) => {
+                        (e.currentTarget as HTMLElement).style.boxShadow = 'var(--shadow-sm)';
+                        (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
+                      }}
+                    >
+                      <div style={{ position: 'relative' }}>
+                        <img
+                          src={resource.thumbnail}
+                          alt={resource.title}
+                          style={{ width: '100%', height: 160, objectFit: 'cover', display: 'block' }}
+                        />
+                        <span style={{
+                          position: 'absolute',
+                          top: 'var(--space-3)',
+                          left: 'var(--space-3)',
+                          background: 'var(--primary)',
+                          color: 'var(--primary-foreground)',
+                          fontSize: '0.75rem',
+                          fontWeight: 600,
+                          padding: 'var(--space-1) var(--space-3)',
+                          borderRadius: 999,
+                          fontFamily: 'var(--font-sans)',
+                        }}>
+                          {meta.emoji} {meta.label}
+                        </span>
+                      </div>
+                      <div style={{ padding: 'var(--space-4)' }}>
+                        <h3 style={{
+                          fontSize: '0.9375rem',
+                          fontWeight: 600,
+                          margin: '0 0 var(--space-1)',
+                          color: 'var(--foreground)',
+                          fontFamily: 'var(--font-heading)',
+                          lineHeight: 1.3,
+                        }}>
+                          {resource.title}
+                        </h3>
+                        {resource.author && (
+                          <p style={{ fontSize: '0.8125rem', color: 'var(--muted-foreground)', margin: 0 }}>
+                            by {resource.author}
+                          </p>
+                        )}
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+              <div style={{ textAlign: 'center' }}>
+                <Link href="/resources" className="btn btn-secondary">
+                  Browse all resources →
+                </Link>
               </div>
             </div>
 

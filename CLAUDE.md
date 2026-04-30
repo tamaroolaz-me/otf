@@ -19,14 +19,44 @@ No test suite is configured.
 ### Key conventions
 
 - **CSS variables for all spacing/color:** Always use `style={{ padding: 'var(--space-4)' }}` pattern, not hardcoded values. Variables are defined in `styles/globals.css` (`--space-*`, `--primary`, `--border`, `--font-heading`, etc.).
-- **Static data, no CMS:** All resource content lives in [data/resources.ts](data/resources.ts) as a typed `Resource[]` array — this is the single source of truth for the `/resources` section. The `Resource` interface supports an optional `youtubeId` field (renders an embedded YouTube player instead of a static thumbnail) and an optional `downloads` field (`Array<{ label: string; href: string }>`) for downloadable files (typically PDFs placed in `public/downloads/`). Neither field is required.
+- **Static data, no CMS:** All resource content lives in [data/resources.ts](data/resources.ts) as a typed `Resource[]` array — this is the single source of truth for the `/resources` section.
+
+  **`Resource` interface fields:**
+  | Field | Type | Required | Notes |
+  |---|---|---|---|
+  | `slug` | `string` | yes | URL segment; kebab-case, no spaces |
+  | `title` | `string` | yes | |
+  | `category` | `"Watch" \| "Listen" \| "Read" \| "Tool"` | yes | Controls emoji badge on card |
+  | `author` | `string` | no | Shown beneath title on card and detail page |
+  | `description` | `string` | yes | Short blurb shown on the card |
+  | `detailDescription` | `string` | yes | Long-form body for the detail page; subset of markdown (see below) |
+  | `thumbnail` | `string` | yes | **Always used for the card on `/resources`**, even for YouTube resources. Use a local path like `/images/my-resource.png` (file goes in `public/images/`). Use kebab-case filenames with no spaces. |
+  | `href` | `string` | yes | The canonical external URL (e.g. YouTube, Amazon, Netflix) |
+  | `youtubeId` | `string` | no | When set, the **detail page** replaces the static thumbnail with a 16:9 `<iframe>` embed. Has no effect on the card — `thumbnail` is still used there. Extract from the `?v=` param of the YouTube URL. |
+  | `isExternal` | `boolean` | yes | Must be `true` for a detail page to be generated (`getStaticPaths` filters on this) |
+  | `featured` | `boolean` | yes | `true` → appears in the top Featured grid; `false` → All Resources section |
+  | `cost` | `string` | yes | e.g. `"Free"`, `"~$15"`, `"Netflix subscription"` |
+  | `timeToComplete` | `string` | yes | e.g. `"~24 min"`, `"~8 hours"`, `"1h 16m"` |
+  | `downloads` | `Array<{ label: string; href: string }>` | no | Downloadable files shown on detail page; place PDFs in `public/downloads/` and use `/downloads/filename.pdf` as `href` |
+
 - **Pages Router only:** All routes are file-based under `/pages`. Do not introduce App Router patterns.
 - **Minimal component abstraction:** Reusable components live in `/components` (currently just `Nav` and `Footer`). Page logic stays inline in page files unless genuinely shared.
 
 ### Notable pages
 
 - [pages/quiz.tsx](pages/quiz.tsx) — The main interactive feature. Complex client-side state for a multi-step personality quiz. GA4 events fire on each step.
-- [pages/resources/[slug].tsx](pages/resources/%5Bslug%5D.tsx) — Dynamic resource detail pages driven by slugs from `data/resources.ts`. Only resources with `isExternal: true` get a detail page (controls `getStaticPaths`). The page has two media modes: a responsive 16:9 YouTube iframe embed (when `youtubeId` is set) or a static thumbnail image. The `detailDescription` field supports a subset of markdown — `##`/`###` headings, `---` horizontal rules, `- ` bullet lists, and `**bold**` inline — rendered by `renderMarkdownBlock` and `renderInline` helpers inline in the page file.
+- [pages/resources/[slug].tsx](pages/resources/%5Bslug%5D.tsx) — Dynamic resource detail pages. Only resources with `isExternal: true` get a page. Two media modes at the top: a 16:9 `<iframe>` embed when `youtubeId` is set, or a static `<img>` from `thumbnail` otherwise.
+
+  **`detailDescription` markdown renderer** (`renderMarkdownBlock` + `renderInline`, defined inline in the file):
+  - The string is split on `\n\n` — each double-newline-separated chunk is one block.
+  - **Supported block-level syntax:**
+    - `---` (exact, trimmed) → `<hr>`
+    - `## Heading` → `<h2>`
+    - `### Heading` → `<h3>`
+    - A block where **every line** starts with `- ` → `<ul>` (all lines must be list items; a single `- ` line with no siblings is treated as a `<p>`)
+    - Everything else → `<p>`
+  - **Supported inline syntax** (applied inside `<p>` and `<li>`): `**bold**` → `<strong>`
+  - **Not supported:** `*italic*`, `[links](url)`, `# h1`, inline code, nested lists. These render as literal characters.
 
 ### Analytics
 

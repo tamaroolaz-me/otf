@@ -154,7 +154,7 @@ Two minutes of that question can save you from a conversation that goes nowhere,
 The next time you're about to give or receive feedback, pause for ten seconds before the conversation starts. Ask yourself where you are. If you're above the line, go ahead. If you're below, decide whether to shift, name it, or postpone.
 
 And if you're working with a team, introduce the language this week. You don't need a training session. You just need to start asking the question.`,
-    thumbnail: "https://img.youtube.com/vi/fLqzYDZAqCI/maxresdefault.jpg",
+    thumbnail: "/images/locating-yourself.png",
     href: "https://www.youtube.com/watch?v=fLqzYDZAqCI",
     youtubeId: "fLqzYDZAqCI",
     isExternal: true,
@@ -228,6 +228,121 @@ And if you're working with a team, introduce the language this week. You don't n
     featured: false,
     cost: "~$15",
     timeToComplete: "~6 hours",
+  },
+  {
+    slug: "how-to-love-criticism",
+    title: "How to Love Criticism",
+    category: "Listen",
+    author: "Adam Grant",
+    description:
+      "Organizational psychologist Adam Grant explores the science of why criticism hurts so much — and what it actually takes to get good at receiving it.",
+    detailDescription: `### Key insights from Adam Grant's WorkLife podcast
+
+Most of us don't love criticism. We tolerate it at best, dread it at worst. But organizational psychologist Adam Grant argues that learning to seek out and sit with hard feedback is one of the most valuable things you can do for your growth at work.
+
+In this episode of WorkLife, Grant explores the science behind why criticism feels so bad and what it takes to actually get good at receiving it.
+
+---
+
+## Why criticism hurts so much
+
+When you get negative feedback, your body responds as if it's a physical threat. Your shoulders tighten, your breathing shallens, and neuroscientists have found you show a genuine pain response. Then your mind kicks in, mounting a defense.
+
+Grant describes this as your ego behaving like a totalitarian regime, controlling what information gets through. The result? You hear what you want to hear and screen out the rest. That's a problem, because if you never hear criticism clearly, you can't improve.
+
+---
+
+## Two networks you need
+
+Most of us have a strong support network, the friends, colleagues, and family members who reassure us when things go wrong. But Grant argues you also need a challenge network: people you trust to tell you what you don't want to hear.
+
+These aren't critics for the sake of it. They're people who push you because they want you to get better. The difference matters. Research shows we tend to cut people out of our lives when they criticize us, when what we should actually be doing is pulling them closer.
+
+---
+
+## Proving mode vs improving mode
+
+When criticism lands, most people shift into what Grant calls proving mode. The instinct is to defend yourself, explain why the feedback is wrong, and protect your image.
+
+The alternative is improving mode. That's where you treat feedback as data. Not a verdict on who you are, but information about what you can do differently. Psychologist Carol Dweck would call this a growth mindset in practice.
+
+The challenge is that your proving mode voice is loud. Your improving mode voice is quiet. Learning to hear the quieter one takes practice.
+
+---
+
+## How to give criticism well
+
+Executive coach Kim Scott offers a simple frame for giving feedback that actually lands: care personally while you challenge directly.
+
+That means dropping the feedback sandwich (praise, criticism, praise). Research shows it doesn't work. People either wait for the criticism to arrive or tune out the middle entirely. Instead, be direct and make your intention clear. The easier it is for someone to see that your feedback comes from a desire to help them, the easier it is for them to hear it.
+
+Scott also suggests removing the phrase "don't take it personally" from your vocabulary. It's fine if someone has an emotional reaction to feedback. That's normal. Respond with compassion and keep going.
+
+---
+
+## The second score
+
+One of the most practical ideas in the episode is what Grant calls the second score.
+
+The first score is the feedback itself. You can't control it. But the second score is how you respond to it, and that's entirely yours. Do you get defensive? Shut down? Or do you listen, ask questions, and show you're willing to engage?
+
+Grant's point is that people often admire the person who receives hard feedback well more than the person who never seems to need it. If you know you're being evaluated on your openness, there's no fixed image left to protect.
+
+A simple habit: after you receive feedback, ask the person who gave it how you came across. That second score becomes something you can actually work on.
+
+---
+
+## Pain plus reflection equals progress
+
+Ray Dalio, founder of Bridgewater Associates, puts it plainly: pain plus reflection equals progress. The pain of criticism is the signal. Reflection is what turns it into something useful.
+
+That doesn't mean criticism stops hurting. But over time, with enough practice, the gap between the sting and the learning can shrink. What used to take weeks to process can start to take hours, then minutes.
+
+The goal isn't to stop feeling the discomfort. It's to get faster at moving through it toward something useful.
+
+---
+
+## The takeaway
+
+You don't have to build a culture of radical transparency overnight. But you can start by finding one or two people who'll give you honest feedback and committing to actually hear them. Ask for criticism before it arrives unsolicited. Give yourself a second score each time. And practice sitting with the discomfort long enough to find the lesson in it.
+
+The people who get best at receiving feedback aren't the ones who feel it less. They're the ones who've learned to do something with it faster.
+
+---
+
+Source: WorkLife with Adam Grant, "How to Love Criticism" (April 2018)`,
+    thumbnail: "/images/how-to-love-criticism.png",
+    href: "https://www.youtube.com/watch?v=Wh1zhRck-Wg",
+    youtubeId: "Wh1zhRck-Wg",
+    isExternal: true,
+    featured: false,
+    cost: "Free",
+    timeToComplete: "~24 min",
+  },
+  {
+    slug: "build-your-challenge-network",
+    title: "Build your challenge network",
+    category: "Read",
+    description:
+      "Most of us have a support network. This guide helps you build the other kind: the people who tell you the truth.",
+    detailDescription: `Honest feedback is rare. Not because people don't have opinions, but because most of us never make it easy for them to share those opinions with us. We surround ourselves with people who reassure us, then wonder why we keep making the same mistakes.
+
+A challenge network solves that problem. It's a small group of people you deliberately recruit to tell you what you need to hear. The idea comes from organisational psychologist Adam Grant, who argues that the people who grow fastest at work aren't the ones who avoid criticism. They're the ones who've built systems to seek it out.
+
+This guide walks you through how to do that. It covers the two sides of the relationship: what you're asking your challenge network to commit to, and what you're committing to in return. Because this only works if both people know what they're agreeing to. It also includes a short framework for choosing the right people and a script you can use almost verbatim to start the conversation.
+
+The guide is designed to be shared. Page two works as a standalone invitation. Send it directly to someone you'd like in your network so they understand what they're agreeing to before they say yes.
+
+Download it, use page one as your reference, and send page two to the people you trust most to be honest with you.`,
+    thumbnail: "/images/build-your-challenge-network.png",
+    href: "/downloads/how-to-build-your-challenge-network.pdf",
+    isExternal: true,
+    featured: false,
+    cost: "Free",
+    timeToComplete: "~5 min",
+    downloads: [
+      { label: "Build your challenge network (PDF)", href: "/downloads/how-to-build-your-challenge-network.pdf" },
+    ],
   },
   {
     slug: "thinking-fast-and-slow",
