@@ -48,6 +48,7 @@ export default function Nav() {
               {[
                 { href: '/', label: 'Home' },
                 { href: '/how-to', label: 'How To' },
+                { href: '/services', label: 'Services' },
                 { href: '/resources', label: 'Resources' },
                 { href: '/about', label: 'About' },
               ].map(({ href, label }) => (
