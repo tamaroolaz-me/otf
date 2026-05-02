@@ -151,7 +151,6 @@ export default function Workshop() {
               <p style={{ marginBottom: 0, color: 'var(--foreground)', lineHeight: 1.8, fontSize: '1.0625rem' }}>
                 This is a hands-on workshop for teams and individuals who want to get better at feedback, fast.
                 In half a day, you'll move from understanding why feedback is hard to actually practising how to do it better.
-                No slides-and-lectures. Real scenarios, real conversations, real takeaways.
               </p>
             </div>
 

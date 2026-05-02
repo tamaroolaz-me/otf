@@ -228,7 +228,7 @@ export default function Course() {
                 ))}
               </div>
               <p style={{ marginBottom: 0, color: 'var(--foreground)' }}>
-                The live sessions happen in discussion groups of five to six people — small enough to go deep, safe enough to be honest.
+                The live sessions happen in discussion groups of five to six people; small enough to go deep, safe enough to be honest.
                 The async content includes short videos, reflection exercises, real scenarios and habit-building challenges you can apply
                 immediately in your work.
               </p>
