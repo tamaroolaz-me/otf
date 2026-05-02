@@ -7,12 +7,12 @@ const services = [
   {
     badge: '6-Week Course',
     title: 'The Feedback Course',
-    tagline: 'Six weeks. Small groups. Real change.',
+    tagline: 'Six weeks. Small groups. Keys to progressing in your career.',
     description:
-      'An online programme for young professionals who want to change how they actually respond to feedback — not just understand what good feedback looks like.',
+      'An online programme for young professionals who want to change how they actually respond to feedback and seek out guidance that is actually useful.',
     highlights: [
       'Live group sessions of 5–6 people',
-      '3 hours per week — live + async',
+      '3hrs per week, 1hr live + 2hrs async',
       'Practical habits you apply immediately',
     ],
     cta: 'View Course',
@@ -23,11 +23,11 @@ const services = [
     title: 'Feedback Workshop',
     tagline: "Half a day. Practical skills you'll use the next morning.",
     description:
-      'A hands-on workshop for teams and individuals who want to get better at feedback, fast. Real scenarios, real conversations, real takeaways.',
+      'A hands-on workshop for teams and individuals who want to get better at feedback, fast. Research-based insights, useful simulations, useful takeaways.',
     highlights: [
       'Available in Cape Town or online',
       'Suitable for individuals or teams',
-      'No theory — straight to practice',
+      'Actionable insights',
     ],
     cta: 'View Workshop',
     href: '/workshop',
