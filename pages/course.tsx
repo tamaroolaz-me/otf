@@ -8,6 +8,12 @@ const courseMailto =
   `?subject=${encodeURIComponent('Feedback Course Enquiry')}` +
   `&body=${encodeURIComponent("Hi, I'm interested in the feedback course for [myself / my company] and would like to know more.")}`;
 
+function trackEnquiry() {
+  if (typeof window === 'undefined') return;
+  const gtag = (window as unknown as Record<string, unknown>).gtag as ((...args: unknown[]) => void) | undefined;
+  gtag?.('event', 'enquire_now_click', { service: 'course' });
+}
+
 const whoItIsFor = [
   "You feel triggered or defensive when you receive feedback and want to change that",
   "You want more feedback from your manager, peers or team but don't know how to ask",
@@ -141,7 +147,7 @@ export default function Course() {
               Master the art of receiving, seeking and acting on feedback — and start building a culture where honest feedback flows around you.
             </p>
             <div style={{ display: 'flex', gap: 'var(--space-4)', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <a href={courseMailto} className="btn btn-primary btn-lg">
+              <a href={courseMailto} onClick={trackEnquiry} className="btn btn-primary btn-lg">
                 Enquire Now
               </a>
               <a
@@ -358,7 +364,7 @@ export default function Course() {
                 Or join the waitlist to be notified when the next cohort opens.
               </p>
               <div style={{ display: 'flex', gap: 'var(--space-4)', justifyContent: 'center', flexWrap: 'wrap' }}>
-                <a href={courseMailto} className="btn btn-primary btn-lg">
+                <a href={courseMailto} onClick={trackEnquiry} className="btn btn-primary btn-lg">
                   Enquire Now
                 </a>
                 <a

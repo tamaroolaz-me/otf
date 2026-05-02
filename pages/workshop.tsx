@@ -8,6 +8,12 @@ const workshopMailto =
   `?subject=${encodeURIComponent('Feedback Workshop Enquiry')}` +
   `&body=${encodeURIComponent("Hi, I'm interested in the feedback workshop for [myself / my company] and would like to know more.")}`;
 
+function trackEnquiry() {
+  if (typeof window === 'undefined') return;
+  const gtag = (window as unknown as Record<string, unknown>).gtag as ((...args: unknown[]) => void) | undefined;
+  gtag?.('event', 'enquire_now_click', { service: 'workshop' });
+}
+
 const covers = [
   "The psychology of feedback: why our brains treat it as a threat and what to do about that",
   "How to receive feedback without getting defensive or shutting down",
@@ -242,7 +248,7 @@ export default function Workshop() {
               <p style={{ color: 'var(--primary-800)', marginBottom: 'var(--space-6)', fontSize: '1.0625rem' }}>
                 Whether you're booking for yourself or your team, get in touch and we'll work out the best format and timing.
               </p>
-              <a href={workshopMailto} className="btn btn-primary btn-lg">
+              <a href={workshopMailto} onClick={trackEnquiry} className="btn btn-primary btn-lg">
                 Enquire Now
               </a>
             </div>
