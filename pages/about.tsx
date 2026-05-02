@@ -70,12 +70,12 @@ export default function About() {
                 }}>
                   <h3 style={{
                     fontSize: '1.125rem',
-                    color: 'var(--primary-900)',
+                    color: 'var(--accent-foreground)',
                     marginBottom: 'var(--space-2)'
                   }}>
                     🎯 Practical Tools
                   </h3>
-                  <p style={{ fontSize: '0.875rem', color: 'var(--primary-700)' }}>
+                  <p style={{ fontSize: '0.875rem', color: 'var(--foreground)' }}>
                     Step-by-step guidance on how to ask for, receive, and act on feedback effectively
                   </p>
                 </div>
@@ -88,12 +88,12 @@ export default function About() {
                 }}>
                   <h3 style={{
                     fontSize: '1.125rem',
-                    color: 'var(--primary-900)',
+                    color: 'var(--accent-foreground)',
                     marginBottom: 'var(--space-2)'
                   }}>
                     🧠 Mindset Shifts
                   </h3>
-                  <p style={{ fontSize: '0.875rem', color: 'var(--primary-700)' }}>
+                  <p style={{ fontSize: '0.875rem', color: 'var(--foreground)' }}>
                     Overcome mental barriers and learn to see feedback as a gift for growth
                   </p>
                 </div>
@@ -106,12 +106,12 @@ export default function About() {
                 }}>
                   <h3 style={{
                     fontSize: '1.125rem',
-                    color: 'var(--primary-900)',
+                    color: 'var(--accent-foreground)',
                     marginBottom: 'var(--space-2)'
                   }}>
                     📚 Free Resources
                   </h3>
-                  <p style={{ fontSize: '0.875rem', color: 'var(--primary-700)' }}>
+                  <p style={{ fontSize: '0.875rem', color: 'var(--foreground)' }}>
                     Curated reading lists, podcasts, and exercises to support your journey
                   </p>
                 </div>
@@ -124,12 +124,12 @@ export default function About() {
                 }}>
                   <h3 style={{
                     fontSize: '1.125rem',
-                    color: 'var(--primary-900)',
+                    color: 'var(--accent-foreground)',
                     marginBottom: 'var(--space-2)'
                   }}>
                     🚀 Structured Learning
                   </h3>
-                  <p style={{ fontSize: '0.875rem', color: 'var(--primary-700)' }}>
+                  <p style={{ fontSize: '0.875rem', color: 'var(--foreground)' }}>
                     A comprehensive course designed to master the art of being open to feedback
                   </p>
                 </div>
@@ -199,7 +199,7 @@ export default function About() {
                 background: 'var(--accent)',
                 borderLeft: '4px solid var(--primary)',
                 borderRadius: 'var(--radius)',
-                color: 'var(--primary-800)'
+                color: 'var(--blockquote-text)'
               }}>
                 "If we never learn to take something apart, test the assumptions, and reconstruct it,
                 we end up trapped in what other people tell us — trapped in the way things have always been done."
@@ -270,7 +270,7 @@ export default function About() {
                     ] as { myth: string; truth: string }[]).map(({ myth, truth }, i) => (
                       <tr key={i} style={{
                         borderBottom: i < 5 ? '1px solid var(--border)' : 'none',
-                        background: i % 2 === 0 ? 'var(--accent)' : 'white'
+                        background: i % 2 === 0 ? 'var(--accent)' : 'var(--background)'
                       }}>
                         <td style={{
                           padding: 'var(--space-4)',

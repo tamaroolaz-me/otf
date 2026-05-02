@@ -68,6 +68,9 @@
   --space-20: 5rem;
   --space-24: 6rem;
 
+  /* Component tokens */
+  --blockquote-text: var(--primary-800);
+
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
@@ -97,6 +100,7 @@
     --destructive: #dc2626;
     --destructive-foreground: var(--gray-50);
     --ring: var(--primary-500);
+    --blockquote-text: var(--primary-300);
   }
 }
 
