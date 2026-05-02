@@ -1,6 +1,14 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/how-to', label: 'How To' },
+  { href: '/services', label: 'Services' },
+  { href: '/resources', label: 'Resources' },
+  { href: '/about', label: 'About' },
+];
+
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -45,13 +53,7 @@ export default function Nav() {
             gap: 'var(--space-8)',
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-6)' }}>
-              {[
-                { href: '/', label: 'Home' },
-                { href: '/how-to', label: 'How To' },
-                { href: '/services', label: 'Services' },
-                { href: '/resources', label: 'Resources' },
-                { href: '/about', label: 'About' },
-              ].map(({ href, label }) => (
+              {navLinks.map(({ href, label }) => (
                 <Link key={href} href={href} style={{
                   color: 'var(--muted-foreground)',
                   fontWeight: '500',
@@ -143,12 +145,7 @@ export default function Nav() {
         }}
       >
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
-          {[
-            { href: '/', label: 'Home' },
-            { href: '/how-to', label: 'How To' },
-            { href: '/resources', label: 'Resources' },
-            { href: '/about', label: 'About' },
-          ].map(({ href, label }) => (
+          {navLinks.map(({ href, label }) => (
             <Link key={href} href={href} onClick={closeMenu} style={{
               padding: 'var(--space-4)',
               borderRadius: 'var(--radius)',
