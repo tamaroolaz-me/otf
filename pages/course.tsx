@@ -102,7 +102,7 @@ export default function Course() {
 
       <Nav />
 
-      <div style={{ paddingTop: '70px' }}>
+      <main style={{ paddingTop: '70px' }}>
 
         {/* Hero */}
         <section style={{
@@ -334,9 +334,9 @@ export default function Course() {
                       <span style={{ fontSize: '22px' }}>{icon}</span>
                     </div>
                     <div>
-                      <h4 style={{ color: 'var(--foreground)', marginBottom: 'var(--space-2)', fontSize: '1rem' }}>
+                      <h3 style={{ color: 'var(--foreground)', marginBottom: 'var(--space-2)', fontSize: '1rem' }}>
                         {title}
-                      </h4>
+                      </h3>
                       <p style={{ color: 'var(--muted-foreground)', fontSize: '0.875rem', margin: 0 }}>
                         {description}
                       </p>
@@ -387,7 +387,7 @@ export default function Course() {
           </div>
         </section>
 
-      </div>
+      </main>
     </>
   );
 }

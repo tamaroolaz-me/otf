@@ -93,7 +93,7 @@ export default function Workshop() {
 
       <Nav />
 
-      <div style={{ paddingTop: '70px' }}>
+      <main style={{ paddingTop: '70px' }}>
 
         {/* Hero */}
         <section style={{
@@ -260,7 +260,7 @@ export default function Workshop() {
           </div>
         </section>
 
-      </div>
+      </main>
     </>
   );
 }

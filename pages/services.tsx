@@ -47,7 +47,7 @@ export default function Services() {
 
       <Nav />
 
-      <div style={{ paddingTop: '70px' }}>
+      <main style={{ paddingTop: '70px' }}>
 
         <section style={{
           background: 'linear-gradient(135deg, var(--primary-50) 0%, var(--primary-100) 100%)',
@@ -150,7 +150,7 @@ export default function Services() {
           </div>
         </section>
 
-      </div>
+      </main>
     </>
   );
 }

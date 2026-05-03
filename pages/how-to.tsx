@@ -11,7 +11,7 @@ export default function HowTo() {
       <Nav />
       
       {/* Add top padding to account for fixed header */}
-      <div style={{ paddingTop: '70px' }}>
+      <main style={{ paddingTop: '70px' }}>
         
         {/* Hero Section */}
         <section style={{
@@ -327,7 +327,7 @@ export default function HowTo() {
           </div>
         </section>
 
-      </div>
+      </main>
     </>
   );
 }

@@ -8,7 +8,7 @@ export default function WhatIsFeedback() {
       <Nav />
       
       {/* Add top padding to account for fixed header */}
-      <div style={{ paddingTop: '70px' }}>
+      <main style={{ paddingTop: '70px' }}>
         
         {/* Hero Section */}
         <section style={{
@@ -332,7 +332,7 @@ export default function WhatIsFeedback() {
           </div>
         </section>
 
-      </div>
+      </main>
     </>
   );
 }

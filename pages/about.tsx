@@ -8,7 +8,7 @@ export default function About() {
       <Nav />
       
       {/* Add top padding to account for fixed header */}
-      <div style={{ paddingTop: '70px' }}>
+      <main style={{ paddingTop: '70px' }}>
         
         {/* Hero Section */}
         <section style={{
@@ -345,7 +345,7 @@ export default function About() {
           </div>
         </section>
 
-      </div>
+      </main>
     </>
   );
 }

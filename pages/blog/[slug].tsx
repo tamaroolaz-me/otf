@@ -35,7 +35,7 @@ function formatDate(iso: string) {
 // All values use CSS variables from globals.css so they stay consistent with the design system.
 const markdownComponents: React.ComponentProps<typeof ReactMarkdown>["components"] = {
   h1: ({ children }) => (
-    <h1
+    <h2
       style={{
         fontSize: "1.75rem",
         fontWeight: 700,
@@ -47,7 +47,7 @@ const markdownComponents: React.ComponentProps<typeof ReactMarkdown>["components
       }}
     >
       {children}
-    </h1>
+    </h2>
   ),
   h2: ({ children }) => (
     <h2

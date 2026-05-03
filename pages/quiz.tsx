@@ -467,7 +467,7 @@ export default function Quiz() {
   return (
     <>
       <Nav />
-      <div style={{ paddingTop: '70px' }}>
+      <main style={{ paddingTop: '70px' }}>
 
         {/* ── INTRO ── */}
         {phase === 'intro' && (
@@ -721,7 +721,7 @@ export default function Quiz() {
             </div>
           </section>
         )}
-      </div>
+      </main>
     </>
   );
 }
