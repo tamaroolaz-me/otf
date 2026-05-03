@@ -21,8 +21,20 @@ export default function Document() {
         />
 
         {/* Favicon */}
-        <link rel="icon" href="/favicon.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/favicon.png" />
+        <link rel="icon" href="/icon-32.png" sizes="32x32" type="image/png" />
+        <link rel="icon" href="/icon-96.png" sizes="96x96" type="image/png" />
+        <link rel="icon" href="/favicon.png" sizes="any" type="image/png" />
+
+        {/* Apple touch icon — iOS home screen, must be exactly 180x180 */}
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+        {/* Web app meta */}
+        <meta name="apple-mobile-web-app-title" content="Open to Feedback" />
+        <meta name="application-name" content="Open to Feedback" />
+        <meta name="theme-color" content="#16a34a" />
+
+        {/* Web app manifest */}
+        <link rel="manifest" href="/manifest.json" />
       </Head>
       <body>
         <Main />

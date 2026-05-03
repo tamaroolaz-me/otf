@@ -1,0 +1,21 @@
+{
+  "name": "Open to Feedback",
+  "short_name": "Open to Feedback",
+  "description": "Learn to give and receive feedback well.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#ffffff",
+  "theme_color": "#16a34a",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "2084x2084",
+      "type": "image/png"
+    }
+  ]
+}
