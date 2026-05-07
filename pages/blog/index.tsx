@@ -1,6 +1,6 @@
-import Head from "next/head";
 import Link from "next/link";
 import Nav from "../../components/Nav";
+import SeoHead from "../../components/SeoHead";
 import { posts } from "../../data/blog";
 import type { BlogPost } from "../../data/blog";
 
@@ -18,13 +18,11 @@ function formatDate(iso: string) {
 export default function BlogPage() {
   return (
     <>
-      <Head>
-        <title>Blog | Open to Feedback</title>
-        <meta
-          name="description"
-          content="Practical ideas on giving and receiving feedback, for leaders and teams."
-        />
-      </Head>
+      <SeoHead
+        title="Blog | Open to Feedback"
+        description="Practical ideas on giving and receiving feedback for leaders and teams. Real-world frameworks, mindset shifts and small habits that compound."
+        path="/blog"
+      />
       <Nav />
       <main style={{ paddingTop: 70 }}>
         <section className="hero">

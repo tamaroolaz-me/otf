@@ -1,6 +1,6 @@
-import Head from "next/head";
 import Link from "next/link";
 import Nav from "../../components/Nav";
+import SeoHead from "../../components/SeoHead";
 import { resources, CATEGORY_META } from "../../data/resources";
 import type { Resource } from "../../data/resources";
 
@@ -10,13 +10,11 @@ const allResources = resources.filter((r) => !r.featured);
 export default function ResourcesPage() {
   return (
     <>
-      <Head>
-        <title>Resources | Open to Feedback</title>
-        <meta
-          name="description"
-          content="Curated books, videos, podcasts, and tools to help you give and receive feedback well."
-        />
-      </Head>
+      <SeoHead
+        title="Resources | Open to Feedback"
+        description="A curated library of books, videos, podcasts and tools to help you give and receive feedback well — from Brené Brown to Adam Grant to Kim Scott."
+        path="/resources"
+      />
       <Nav />
       <main style={{ paddingTop: 70 }}>
         <section className="hero">

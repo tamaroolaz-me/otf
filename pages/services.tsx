@@ -1,7 +1,7 @@
 import React from 'react';
-import Head from 'next/head';
 import Link from 'next/link';
 import Nav from '../components/Nav';
+import SeoHead from '../components/SeoHead';
 
 const services = [
   {
@@ -37,13 +37,11 @@ const services = [
 export default function Services() {
   return (
     <>
-      <Head>
-        <title>Services | Open to Feedback</title>
-        <meta
-          name="description"
-          content="Practical feedback programmes for individuals and teams. A six-week online course and a half-day workshop — in person in Cape Town or online worldwide."
-        />
-      </Head>
+      <SeoHead
+        title="Services | Open to Feedback"
+        description="Practical feedback programmes for individuals and teams. A six-week online course and a half-day workshop — in person in Cape Town or online worldwide."
+        path="/services"
+      />
 
       <Nav />
 

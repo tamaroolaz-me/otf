@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.opentofeedback.com
+
+# Sitemaps
+Sitemap: https://www.opentofeedback.com/sitemap.xml

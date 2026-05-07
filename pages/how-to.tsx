@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Nav from '../components/Nav';
+import SeoHead from '../components/SeoHead';
 import { resources, CATEGORY_META } from '../data/resources';
 
 const featuredResources = resources.filter((r) => r.featured);
@@ -8,6 +9,11 @@ const featuredResources = resources.filter((r) => r.featured);
 export default function HowTo() {
   return (
     <>
+      <SeoHead
+        title="How to give and receive feedback | Open to Feedback"
+        description="A practical four-step guide to giving and receiving feedback well. Start small, build the habit, and turn feedback into a tool for real growth."
+        path="/how-to"
+      />
       <Nav />
       
       {/* Add top padding to account for fixed header */}

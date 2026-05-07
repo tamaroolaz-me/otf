@@ -1,10 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
 import Nav from '../components/Nav';
+import SeoHead from '../components/SeoHead';
 
 export default function About() {
   return (
     <>
+      <SeoHead
+        title="About | Open to Feedback"
+        description="Learn about Open to Feedback — a platform with practical tools, mindset shifts and a structured course to help individuals and teams grow through honest feedback."
+        path="/about"
+      />
       <Nav />
       
       {/* Add top padding to account for fixed header */}

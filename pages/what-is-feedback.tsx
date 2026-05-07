@@ -1,10 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
 import Nav from '../components/Nav';
+import SeoHead from '../components/SeoHead';
 
 export default function WhatIsFeedback() {
   return (
     <>
+      <SeoHead
+        title="What is feedback? | Open to Feedback"
+        description="What feedback really means — a clear definition, six common myths debunked, and what genuinely useful feedback looks like in everyday work and life."
+        path="/what-is-feedback"
+      />
       <Nav />
       
       {/* Add top padding to account for fixed header */}

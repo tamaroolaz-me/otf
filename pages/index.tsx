@@ -1,10 +1,28 @@
 import React from 'react';
+import Head from 'next/head';
 import Link from 'next/link';
 import Nav from '../components/Nav';
+import SeoHead from '../components/SeoHead';
+import { organizationSchema, websiteSchema } from '../lib/structuredData';
 
 export default function Home() {
   return (
     <>
+      <SeoHead
+        title="Open to Feedback — Master the art of giving and receiving feedback"
+        description="Practical tools, mindset shifts and a structured course to help you give and receive feedback well — at work, at home, and in every relationship that matters."
+        path="/"
+      />
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema()) }}
+        />
+      </Head>
       <Nav />
       
       {/* Add top padding to account for fixed header */}

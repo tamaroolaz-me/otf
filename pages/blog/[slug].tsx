@@ -3,6 +3,8 @@ import Head from "next/head";
 import Link from "next/link";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Nav from "../../components/Nav";
+import SeoHead from "../../components/SeoHead";
+import { articleSchema, breadcrumbSchema } from "../../lib/structuredData";
 import { posts } from "../../data/blog";
 import type { BlogPost } from "../../data/blog";
 import ReactMarkdown from "react-markdown";
@@ -309,9 +311,32 @@ const markdownComponents: React.ComponentProps<typeof ReactMarkdown>["components
 export default function BlogPostPage({ post }: Props) {
   return (
     <>
+      <SeoHead
+        title={`${post.title} | Blog | Open to Feedback`}
+        description={post.description}
+        path={`/blog/${post.slug}`}
+        image={post.thumbnail}
+        type="article"
+      />
       <Head>
-        <title>{`${post.title} | Blog | Open to Feedback`}</title>
-        <meta name="description" content={post.description} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(articleSchema(post)),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              breadcrumbSchema([
+                { name: "Home", path: "/" },
+                { name: "Blog", path: "/blog" },
+                { name: post.title, path: `/blog/${post.slug}` },
+              ])
+            ),
+          }}
+        />
       </Head>
       <Nav />
       <main style={{ paddingTop: 70 }}>

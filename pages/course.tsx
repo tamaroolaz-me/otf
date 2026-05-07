@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Nav from '../components/Nav';
+import SeoHead from '../components/SeoHead';
 
 const courseMailto =
   `mailto:course@opentofeedback.com` +
@@ -70,12 +71,12 @@ function CheckList({ items, icon = '✓' }: { items: string[]; icon?: string }) 
 export default function Course() {
   return (
     <>
+      <SeoHead
+        title="The Feedback Course | Open to Feedback"
+        description="A six-week online course for young professionals who want to get better at receiving, seeking and acting on feedback. Small groups, live sessions, real change."
+        path="/course"
+      />
       <Head>
-        <title>The Feedback Course | Open to Feedback</title>
-        <meta
-          name="description"
-          content="A six-week online course for young professionals who want to get better at receiving, seeking and acting on feedback. Small group format, live weekly sessions and practical async content."
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

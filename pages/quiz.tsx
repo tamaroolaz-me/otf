@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Nav from '../components/Nav';
+import SeoHead from '../components/SeoHead';
 
 // ─── Content ───────────────────────────────────────────────────────────────
 
@@ -466,6 +467,11 @@ export default function Quiz() {
 
   return (
     <>
+      <SeoHead
+        title="Feedback style quiz | Open to Feedback"
+        description="Take this 2-minute quiz to find out which of the three feedback triggers (Truth, Relationship or Identity) holds you back most — and what to do about it."
+        path="/quiz"
+      />
       <Nav />
       <main style={{ paddingTop: '70px' }}>
 

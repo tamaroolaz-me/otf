@@ -3,6 +3,8 @@ import Head from "next/head";
 import Link from "next/link";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Nav from "../../components/Nav";
+import SeoHead from "../../components/SeoHead";
+import { breadcrumbSchema, videoSchema } from "../../lib/structuredData";
 import { resources, CATEGORY_META } from "../../data/resources";
 import type { Resource } from "../../data/resources";
 
@@ -127,9 +129,41 @@ export default function ResourceDetailPage({ resource }: Props) {
 
   return (
     <>
+      <SeoHead
+        title={`${resource.title} | Resources | Open to Feedback`}
+        description={resource.description}
+        path={`/resources/${resource.slug}`}
+        image={resource.thumbnail}
+      />
       <Head>
-        <title>{`${resource.title} | Resources | Open to Feedback`}</title>
-        <meta name="description" content={resource.description} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              breadcrumbSchema([
+                { name: "Home", path: "/" },
+                { name: "Resources", path: "/resources" },
+                { name: resource.title, path: `/resources/${resource.slug}` },
+              ])
+            ),
+          }}
+        />
+        {resource.youtubeId && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(
+                videoSchema({
+                  slug: resource.slug,
+                  title: resource.title,
+                  description: resource.description,
+                  thumbnail: resource.thumbnail,
+                  youtubeId: resource.youtubeId,
+                })
+              ),
+            }}
+          />
+        )}
       </Head>
       <Nav />
       <main style={{ paddingTop: 70 }}>

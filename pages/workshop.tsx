@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Nav from '../components/Nav';
+import SeoHead from '../components/SeoHead';
 
 const workshopMailto =
   `mailto:workshops@opentofeedback.com` +
@@ -58,12 +59,12 @@ function CheckList({ items, icon = '✓' }: { items: string[]; icon?: string }) 
 export default function Workshop() {
   return (
     <>
+      <SeoHead
+        title="Feedback Workshop | Open to Feedback"
+        description="A practical half-day feedback workshop in Cape Town or online. Learn to give, seek and receive feedback in a way that actually changes behaviour. Teams or individuals."
+        path="/workshop"
+      />
       <Head>
-        <title>Feedback Workshop | Open to Feedback</title>
-        <meta
-          name="description"
-          content="A practical half-day feedback workshop available in Cape Town or online. Learn how to receive, seek and give feedback in a way that actually changes behaviour. Suitable for teams and individuals."
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
