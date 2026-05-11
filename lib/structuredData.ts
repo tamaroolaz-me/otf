@@ -32,14 +32,15 @@ export function articleSchema(post: {
     ? post.thumbnail
     : `${SITE_URL}${post.thumbnail}`;
   const url = `${SITE_URL}/blog/${post.slug}`;
+  const publishedIso = new Date(post.publishedAt).toISOString();
   return {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: post.title,
     description: post.description,
     image: imageUrl,
-    datePublished: post.publishedAt,
-    dateModified: post.publishedAt,
+    datePublished: publishedIso,
+    dateModified: publishedIso,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     url,
     publisher: {
