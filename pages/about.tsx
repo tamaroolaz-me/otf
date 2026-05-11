@@ -47,9 +47,8 @@ export default function About() {
                 <h2 className="card-title">Our Mission</h2>
               </div>
               <p>
-                This platform was created to help individuals and teams grow by learning how to give and receive feedback more effectively.
-                Whether you're a student, a professional, or simply someone who wants to build better relationships and communication skills,
-                you're in the right place.
+                Open to Feedback helps individuals and teams build the Open to Feedback mindset, so fear of feedback stops getting in the way of growth and collaboration.
+                Whether you're a professional navigating workplace dynamics, a leader building team trust, or someone who wants to communicate more honestly, you'll find practical guidance and tools to help you receive feedback without defensiveness, give it without fear, and build the trust that makes growth possible.
               </p>
               <p>
                 You'll find guidance, inspiration, and tools — including a comprehensive course — to help you start and sustain your feedback journey.

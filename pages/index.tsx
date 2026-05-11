@@ -9,8 +9,8 @@ export default function Home() {
   return (
     <>
       <SeoHead
-        title="Open to Feedback — Master the art of giving and receiving feedback"
-        description="Practical tools, mindset shifts and a structured course to help you give and receive feedback well — at work, at home, and in every relationship that matters."
+        title="Open to Feedback — Master the art of receiving and giving feedback"
+        description="Practical tools, mindset shifts and a structured course to help you become open to feedback — at work, at home, and in every relationship that matters."
         path="/"
       />
       <Head>
