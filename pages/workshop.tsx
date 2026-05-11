@@ -79,7 +79,7 @@ export default function Workshop() {
                 'https://schema.org/OfflineEventAttendanceMode',
               ],
               location: [
-                { '@type': 'VirtualLocation', url: 'https://www.opentofeedback.com/workshop' },
+                { '@type': 'VirtualLocation', url: 'https://opentofeedback.com/workshop' },
                 {
                   '@type': 'Place',
                   name: 'Cape Town',

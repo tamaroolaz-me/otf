@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-const SITE_URL = "https://www.opentofeedback.com";
+const SITE_URL = "https://opentofeedback.com";
 const SITE_NAME = "Open to Feedback";
 const DEFAULT_OG_IMAGE = "/og-image.png";
 

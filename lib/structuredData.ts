@@ -1,4 +1,4 @@
-const SITE_URL = "https://www.opentofeedback.com";
+const SITE_URL = "https://opentofeedback.com";
 const SITE_NAME = "Open to Feedback";
 const LOGO_URL = `${SITE_URL}/icon-512.png`;
 

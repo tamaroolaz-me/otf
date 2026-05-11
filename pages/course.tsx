@@ -89,7 +89,7 @@ export default function Course() {
               provider: {
                 '@type': 'Organization',
                 name: 'Open to Feedback',
-                sameAs: 'https://www.opentofeedback.com',
+                sameAs: 'https://opentofeedback.com',
               },
               hasCourseInstance: {
                 '@type': 'CourseInstance',
