@@ -2,27 +2,31 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { GetStaticPaths, GetStaticProps } from "next";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import { serialize } from "next-mdx-remote/serialize";
+import remarkGfm from "remark-gfm";
 import Nav from "../../components/Nav";
 import SeoHead from "../../components/SeoHead";
 import { articleSchema, breadcrumbSchema } from "../../lib/structuredData";
-import { posts } from "../../data/blog";
+import { getAllPosts, getPostBySlug } from "../../data/blog";
 import type { BlogPost } from "../../data/blog";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 
 interface Props {
   post: BlogPost;
+  mdxSource: MDXRemoteSerializeResult;
 }
 
 export const getStaticPaths: GetStaticPaths = () => {
-  const paths = posts.map((p) => ({ params: { slug: p.slug } }));
+  const paths = getAllPosts().map((p) => ({ params: { slug: p.slug } }));
   return { paths, fallback: false };
 };
 
-export const getStaticProps: GetStaticProps<Props> = ({ params }) => {
-  const post = posts.find((p) => p.slug === params?.slug);
-  if (!post) return { notFound: true };
-  return { props: { post } };
+export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+  const { meta: post, content } = getPostBySlug(params?.slug as string);
+  const mdxSource = await serialize(content, {
+    mdxOptions: { remarkPlugins: [remarkGfm] },
+  });
+  return { props: { post, mdxSource } };
 };
 
 function formatDate(iso: string) {
@@ -33,9 +37,9 @@ function formatDate(iso: string) {
   });
 }
 
-// Shared prose styles applied via the components prop of ReactMarkdown.
+// Shared prose styles applied via the components prop of MDXRemote.
 // All values use CSS variables from globals.css so they stay consistent with the design system.
-const markdownComponents: React.ComponentProps<typeof ReactMarkdown>["components"] = {
+const markdownComponents: React.ComponentProps<typeof MDXRemote>["components"] = {
   h1: ({ children }) => (
     <h2
       style={{
@@ -177,8 +181,6 @@ const markdownComponents: React.ComponentProps<typeof ReactMarkdown>["components
   a: ({ href, children }) => (
     <a
       href={href}
-      target="_blank"
-      rel="noopener noreferrer"
       style={{
         color: "var(--primary)",
         textDecoration: "underline",
@@ -189,7 +191,6 @@ const markdownComponents: React.ComponentProps<typeof ReactMarkdown>["components
     </a>
   ),
   code: ({ children, className }) => {
-    // Fenced code block — className is "language-xxx"
     const isBlock = Boolean(className);
     if (isBlock) {
       return (
@@ -257,9 +258,7 @@ const markdownComponents: React.ComponentProps<typeof ReactMarkdown>["components
   ),
   tbody: ({ children }) => <tbody>{children}</tbody>,
   tr: ({ children }) => (
-    <tr
-      style={{ borderBottom: "1px solid var(--border)" }}
-    >
+    <tr style={{ borderBottom: "1px solid var(--border)" }}>
       {children}
     </tr>
   ),
@@ -292,7 +291,7 @@ const markdownComponents: React.ComponentProps<typeof ReactMarkdown>["components
   img: ({ src, alt }) => (
     <img
       src={src}
-      alt={alt ?? ""}
+      alt={alt}
       style={{
         maxWidth: "100%",
         borderRadius: "var(--radius)",
@@ -308,7 +307,7 @@ const markdownComponents: React.ComponentProps<typeof ReactMarkdown>["components
   ),
 };
 
-export default function BlogPostPage({ post }: Props) {
+export default function BlogPostPage({ post, mdxSource }: Props) {
   return (
     <>
       <SeoHead
@@ -319,6 +318,7 @@ export default function BlogPostPage({ post }: Props) {
         type="article"
       />
       <Head>
+        <meta name="author" content={post.author?.name ?? "Tamryn Roberts"} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -450,12 +450,7 @@ export default function BlogPostPage({ post }: Props) {
           </div>
 
           <div>
-            <ReactMarkdown
-              remarkPlugins={[remarkGfm]}
-              components={markdownComponents}
-            >
-              {post.body}
-            </ReactMarkdown>
+            <MDXRemote {...mdxSource} components={markdownComponents} />
           </div>
         </div>
       </main>

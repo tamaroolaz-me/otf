@@ -1,11 +1,24 @@
 import Link from "next/link";
+import { GetStaticProps } from "next";
 import Nav from "../../components/Nav";
 import SeoHead from "../../components/SeoHead";
-import { posts } from "../../data/blog";
+import { getAllPosts } from "../../data/blog";
 import type { BlogPost } from "../../data/blog";
 
-const featuredPosts = posts.filter((p) => p.featured);
-const allPosts = posts.filter((p) => !p.featured);
+interface Props {
+  featuredPosts: BlogPost[];
+  allPosts: BlogPost[];
+}
+
+export const getStaticProps: GetStaticProps<Props> = () => {
+  const posts = getAllPosts();
+  return {
+    props: {
+      featuredPosts: posts.filter((p) => p.featured),
+      allPosts: posts.filter((p) => !p.featured),
+    },
+  };
+};
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("en-US", {
@@ -15,7 +28,7 @@ function formatDate(iso: string) {
   });
 }
 
-export default function BlogPage() {
+export default function BlogPage({ featuredPosts, allPosts }: Props) {
   return (
     <>
       <SeoHead

@@ -21,18 +21,25 @@ export function websiteSchema() {
   };
 }
 
+const DEFAULT_AUTHOR = {
+  name: "Tamryn Roberts",
+  url: "https://www.linkedin.com/in/tamryn-roberts-open-to-feedback/",
+};
+
 export function articleSchema(post: {
   slug: string;
   title: string;
   description: string;
   publishedAt: string;
   thumbnail: string;
+  author?: { name: string; url?: string };
 }) {
   const imageUrl = post.thumbnail.startsWith("http")
     ? post.thumbnail
     : `${SITE_URL}${post.thumbnail}`;
   const url = `${SITE_URL}/blog/${post.slug}`;
   const publishedIso = new Date(post.publishedAt).toISOString();
+  const author = post.author ?? DEFAULT_AUTHOR;
   return {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -48,7 +55,11 @@ export function articleSchema(post: {
       name: SITE_NAME,
       logo: { "@type": "ImageObject", url: LOGO_URL },
     },
-    author: { "@type": "Organization", name: SITE_NAME },
+    author: {
+      "@type": "Person",
+      name: author.name,
+      ...(author.url ? { sameAs: author.url } : {}),
+    },
   };
 }
 
