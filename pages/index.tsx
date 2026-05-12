@@ -1,4 +1,3 @@
-import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Nav from '../components/Nav';
@@ -64,9 +63,8 @@ export default function Home() {
               </p>
             </div>
             
-            <div style={{
+            <div className="features-grid" style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
               gap: 'var(--space-8)',
               marginBottom: 'var(--space-12)'
             }}>
@@ -201,7 +199,7 @@ export default function Home() {
               <div style={{ color: 'var(--primary-800)' }}>
                 <p>
                   In the spirit of being <strong>open to feedback</strong>, this site represents my own learning journey.
-                  I'm rebuilding it using modern tools and AI assistance—embracing the process of continuous improvement.
+                  I'm rebuilding it using modern tools and AI assistance and embracing the process of continuous improvement.
                 </p>
                 <p>
                   You might notice changes, improvements, or even the occasional rough edge as I iterate and grow.
@@ -224,6 +222,17 @@ export default function Home() {
         </section>
 
       </main>
+
+      <style jsx>{`
+        .features-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        @media (max-width: 640px) {
+          .features-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+      `}</style>
     </>
   );
 }
