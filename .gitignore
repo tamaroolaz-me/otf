@@ -44,3 +44,6 @@ next-env.d.ts
 /public/sitemap.xml
 /public/sitemap-*.xml
 /public/robots.txt
+
+# raw content staging folder — never commit source files
+/raw-blog-or-resource/

@@ -51,7 +51,7 @@ export default function About() {
                 Whether you're a professional navigating workplace dynamics, a leader building team trust, or someone who wants to communicate more honestly, you'll find practical guidance and tools to help you receive feedback without defensiveness, give it without fear, and build the trust that makes growth possible.
               </p>
               <p>
-                You'll find guidance, inspiration, and tools — including a comprehensive course — to help you start and sustain your feedback journey.
+                You'll find guidance, inspiration, and tools, including a comprehensive course, to help you start and sustain your feedback journey.
                 The aim is to make learning about feedback feel approachable, empowering, and maybe even enjoyable.
               </p>
             </div>

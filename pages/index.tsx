@@ -130,7 +130,7 @@ export default function Home() {
                 </div>
                 <p className="card-description">
                   Curated reading lists, podcast recommendations, and practical exercises
-                  to support your feedback journey—all completely free.
+                  to support your feedback journey, all completely free.
                 </p>
               </div>
 
@@ -176,7 +176,7 @@ export default function Home() {
               maxWidth: '600px',
               margin: '0 auto var(--space-8)'
             }}>
-              When feedback stings, it&apos;s usually for one of three reasons. Take the 2-minute quiz to find out which feedback trigger affects you most — and what to do about it.
+              When feedback stings, it&apos;s usually for one of three reasons. Take the 2-minute quiz to find out which feedback trigger affects you most, and what to do about it.
             </p>
             <Link href="/quiz" className="btn btn-primary btn-lg">
               Take the Quiz
