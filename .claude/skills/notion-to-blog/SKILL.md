@@ -148,6 +148,36 @@ Read the existing `data/resources.ts` to understand the `Resource` interface and
 
 **Placement:** Add the new resource object to the `resources` array in `data/resources.ts`. Place featured resources near the top of the array, non-featured ones at the bottom. Do not reorder existing entries.
 
+### Downloadable files in resources
+
+If the article body ends with a markdown link in the form `[Download the guide](/public/downloads/filename.pdf)` or similar:
+
+1. **Remove the link from the body.** It cannot render in the resource renderer and the `downloads` field handles it properly.
+2. **Fix the path:** strip the leading `/public` — the correct href is `/downloads/filename.pdf`.
+3. **Add to the `downloads` field:**
+   ```ts
+   downloads: [
+     { label: "Download [descriptive label] (PDF)", href: "/downloads/filename.pdf" },
+   ]
+   ```
+4. **Set `href`** to the same PDF path (so clicking the resource card opens the file directly in the browser — consistent with the "Build your challenge network" pattern).
+5. **Verify the file exists** at `public/downloads/filename.pdf` before writing the entry. If it does not exist, flag it to the user rather than silently adding a broken link.
+
+### Resource renderer limitations
+
+Resources use a custom limited markdown renderer (`renderMarkdownBlock`), not MDX. It only supports:
+- `---` → `<hr>`
+- `## Heading` / `### Heading`
+- Paragraphs and lists (every line must start with `- `)
+- `**bold**` inline
+
+**Not supported:** blockquotes (`>`), `*italic*`, `[links](url)`, inline code, nested lists.
+
+When the article body uses unsupported syntax, adapt it minimally:
+- **Blockquotes (`>`):** Strip the `>` prefix. Keep the text as a regular paragraph. Do not change the content.
+- **Markdown links in body:** Remove them — the `downloads` field renders download buttons, and external links should be noted to the user.
+- Do not change prose content when adapting formatting.
+
 ---
 
 ## Step 4 — Move the source file

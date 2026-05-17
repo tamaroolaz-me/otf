@@ -24,20 +24,119 @@ export const CATEGORY_META: Record<string, { emoji: string; label: string }> = {
 
 export const resources: Resource[] = [
   {
-    slug: "call-to-courage",
-    title: "The Call to Courage",
-    category: "Watch",
-    author: "Brené Brown",
+    slug: "how-to-love-criticism",
+    title: "How to Love Criticism",
+    category: "Listen",
+    author: "Adam Grant",
     description:
-      "Brené Brown explores what it means to choose courage over comfort and show up even when it feels risky.",
-    detailDescription:
-      "In this Netflix special, Brené Brown delivers one of her most personal and direct talks on vulnerability, courage, and what it truly means to show up. Drawing on years of research and her own lived experience, she makes the case that courage and vulnerability are inseparable. Real connection requires the willingness to be seen.\n\nThis is essential viewing for anyone who wants to lead with authenticity, give and receive feedback more honestly, or simply understand why vulnerability isn't weakness. Brown's storytelling is warm, funny, and surprisingly confronting in the best way.\n\nAt just over an hour, it's one of the best investments of your time. Watch it alone or use it as a conversation starter with your team.",
-    thumbnail: "/images/call-to-courage.png",
-    href: "https://www.netflix.com/title/81010166",
+      "Organizational psychologist Adam Grant explores the science of why criticism hurts so much — and what it actually takes to get good at receiving it.",
+    detailDescription: `### Key insights from Adam Grant's WorkLife podcast
+
+Most of us don't love criticism. We tolerate it at best, dread it at worst. But organizational psychologist Adam Grant argues that learning to seek out and sit with hard feedback is one of the most valuable things you can do for your growth at work.
+
+In this episode of WorkLife, Grant explores the science behind why criticism feels so bad and what it takes to actually get good at receiving it.
+
+---
+
+## Why criticism hurts so much
+
+When you get negative feedback, your body responds as if it's a physical threat. Your shoulders tighten, your breathing shallens, and neuroscientists have found you show a genuine pain response. Then your mind kicks in, mounting a defense.
+
+Grant describes this as your ego behaving like a totalitarian regime, controlling what information gets through. The result? You hear what you want to hear and screen out the rest. That's a problem, because if you never hear criticism clearly, you can't improve.
+
+---
+
+## Two networks you need
+
+Most of us have a strong support network, the friends, colleagues, and family members who reassure us when things go wrong. But Grant argues you also need a challenge network: people you trust to tell you what you don't want to hear.
+
+These aren't critics for the sake of it. They're people who push you because they want you to get better. The difference matters. Research shows we tend to cut people out of our lives when they criticize us, when what we should actually be doing is pulling them closer.
+
+---
+
+## Proving mode vs improving mode
+
+When criticism lands, most people shift into what Grant calls proving mode. The instinct is to defend yourself, explain why the feedback is wrong, and protect your image.
+
+The alternative is improving mode. That's where you treat feedback as data. Not a verdict on who you are, but information about what you can do differently. Psychologist Carol Dweck would call this a growth mindset in practice.
+
+The challenge is that your proving mode voice is loud. Your improving mode voice is quiet. Learning to hear the quieter one takes practice.
+
+---
+
+## How to give criticism well
+
+Executive coach Kim Scott offers a simple frame for giving feedback that actually lands: care personally while you challenge directly.
+
+That means dropping the feedback sandwich (praise, criticism, praise). Research shows it doesn't work. People either wait for the criticism to arrive or tune out the middle entirely. Instead, be direct and make your intention clear. The easier it is for someone to see that your feedback comes from a desire to help them, the easier it is for them to hear it.
+
+Scott also suggests removing the phrase "don't take it personally" from your vocabulary. It's fine if someone has an emotional reaction to feedback. That's normal. Respond with compassion and keep going.
+
+---
+
+## The second score
+
+One of the most practical ideas in the episode is what Grant calls the second score.
+
+The first score is the feedback itself. You can't control it. But the second score is how you respond to it, and that's entirely yours. Do you get defensive? Shut down? Or do you listen, ask questions, and show you're willing to engage?
+
+Grant's point is that people often admire the person who receives hard feedback well more than the person who never seems to need it. If you know you're being evaluated on your openness, there's no fixed image left to protect.
+
+A simple habit: after you receive feedback, ask the person who gave it how you came across. That second score becomes something you can actually work on.
+
+---
+
+## Pain plus reflection equals progress
+
+Ray Dalio, founder of Bridgewater Associates, puts it plainly: pain plus reflection equals progress. The pain of criticism is the signal. Reflection is what turns it into something useful.
+
+That doesn't mean criticism stops hurting. But over time, with enough practice, the gap between the sting and the learning can shrink. What used to take weeks to process can start to take hours, then minutes.
+
+The goal isn't to stop feeling the discomfort. It's to get faster at moving through it toward something useful.
+
+---
+
+## The takeaway
+
+You don't have to build a culture of radical transparency overnight. But you can start by finding one or two people who'll give you honest feedback and committing to actually hear them. Ask for criticism before it arrives unsolicited. Give yourself a second score each time. And practice sitting with the discomfort long enough to find the lesson in it.
+
+The people who get best at receiving feedback aren't the ones who feel it less. They're the ones who've learned to do something with it faster.
+
+---
+
+Source: WorkLife with Adam Grant, "How to Love Criticism" (April 2018)`,
+    thumbnail: "/images/how-to-love-criticism.png",
+    href: "https://www.youtube.com/watch?v=Wh1zhRck-Wg",
+    youtubeId: "Wh1zhRck-Wg",
     isExternal: true,
     featured: true,
-    cost: "Netflix subscription",
-    timeToComplete: "1h 16m",
+    cost: "Free",
+    timeToComplete: "~24 min",
+  },
+  {
+    slug: "build-your-challenge-network",
+    title: "Build your challenge network",
+    category: "Read",
+    description:
+      "Most of us have a support network. This guide helps you build the other kind: the people who tell you the truth.",
+    detailDescription: `Honest feedback is rare. Not because people don't have opinions, but because most of us never make it easy for them to share those opinions with us. We surround ourselves with people who reassure us, then wonder why we keep making the same mistakes.
+
+A challenge network solves that problem. It's a small group of people you deliberately recruit to tell you what you need to hear. The idea comes from organisational psychologist Adam Grant, who argues that the people who grow fastest at work aren't the ones who avoid criticism. They're the ones who've built systems to seek it out.
+
+This guide walks you through how to do that. It covers the two sides of the relationship: what you're asking your challenge network to commit to, and what you're committing to in return. Because this only works if both people know what they're agreeing to. It also includes a short framework for choosing the right people and a script you can use almost verbatim to start the conversation.
+
+The guide is designed to be shared. Page two works as a standalone invitation. Send it directly to someone you'd like in your network so they understand what they're agreeing to before they say yes.
+
+Download it, use page one as your reference, and send page two to the people you trust most to be honest with you.`,
+    thumbnail: "/images/build-your-challenge-network.png",
+    href: "/downloads/how-to-build-your-challenge-network.pdf",
+    isExternal: true,
+    featured: true,
+    cost: "Free",
+    timeToComplete: "~5 min",
+    downloads: [
+      { label: "Build your challenge network (PDF)", href: "/downloads/how-to-build-your-challenge-network.pdf" },
+    ],
   },
   {
     slug: "locating-yourself-above-or-below-the-line",
@@ -166,6 +265,22 @@ And if you're working with a team, introduce the language this week. You don't n
     ],
   },
   {
+    slug: "call-to-courage",
+    title: "The Call to Courage",
+    category: "Watch",
+    author: "Brené Brown",
+    description:
+      "Brené Brown explores what it means to choose courage over comfort and show up even when it feels risky.",
+    detailDescription:
+      "In this Netflix special, Brené Brown delivers one of her most personal and direct talks on vulnerability, courage, and what it truly means to show up. Drawing on years of research and her own lived experience, she makes the case that courage and vulnerability are inseparable. Real connection requires the willingness to be seen.\n\nThis is essential viewing for anyone who wants to lead with authenticity, give and receive feedback more honestly, or simply understand why vulnerability isn't weakness. Brown's storytelling is warm, funny, and surprisingly confronting in the best way.\n\nAt just over an hour, it's one of the best investments of your time. Watch it alone or use it as a conversation starter with your team.",
+    thumbnail: "/images/call-to-courage.png",
+    href: "https://www.netflix.com/title/81010166",
+    isExternal: true,
+    featured: false,
+    cost: "Netflix subscription",
+    timeToComplete: "1h 16m",
+  },
+  {
     slug: "thanks-for-the-feedback",
     title: "Thanks for the Feedback",
     category: "Read",
@@ -177,7 +292,7 @@ And if you're working with a team, introduce the language this week. You don't n
     thumbnail: "/images/thanks-for-the-feedback.png",
     href: "https://www.amazon.com/Thanks-Feedback-Science-Receiving-Well/dp/0670014664",
     isExternal: true,
-    featured: true,
+    featured: false,
     cost: "~$15",
     timeToComplete: "~8 hours",
   },
@@ -230,121 +345,6 @@ And if you're working with a team, introduce the language this week. You don't n
     timeToComplete: "~6 hours",
   },
   {
-    slug: "how-to-love-criticism",
-    title: "How to Love Criticism",
-    category: "Listen",
-    author: "Adam Grant",
-    description:
-      "Organizational psychologist Adam Grant explores the science of why criticism hurts so much — and what it actually takes to get good at receiving it.",
-    detailDescription: `### Key insights from Adam Grant's WorkLife podcast
-
-Most of us don't love criticism. We tolerate it at best, dread it at worst. But organizational psychologist Adam Grant argues that learning to seek out and sit with hard feedback is one of the most valuable things you can do for your growth at work.
-
-In this episode of WorkLife, Grant explores the science behind why criticism feels so bad and what it takes to actually get good at receiving it.
-
----
-
-## Why criticism hurts so much
-
-When you get negative feedback, your body responds as if it's a physical threat. Your shoulders tighten, your breathing shallens, and neuroscientists have found you show a genuine pain response. Then your mind kicks in, mounting a defense.
-
-Grant describes this as your ego behaving like a totalitarian regime, controlling what information gets through. The result? You hear what you want to hear and screen out the rest. That's a problem, because if you never hear criticism clearly, you can't improve.
-
----
-
-## Two networks you need
-
-Most of us have a strong support network, the friends, colleagues, and family members who reassure us when things go wrong. But Grant argues you also need a challenge network: people you trust to tell you what you don't want to hear.
-
-These aren't critics for the sake of it. They're people who push you because they want you to get better. The difference matters. Research shows we tend to cut people out of our lives when they criticize us, when what we should actually be doing is pulling them closer.
-
----
-
-## Proving mode vs improving mode
-
-When criticism lands, most people shift into what Grant calls proving mode. The instinct is to defend yourself, explain why the feedback is wrong, and protect your image.
-
-The alternative is improving mode. That's where you treat feedback as data. Not a verdict on who you are, but information about what you can do differently. Psychologist Carol Dweck would call this a growth mindset in practice.
-
-The challenge is that your proving mode voice is loud. Your improving mode voice is quiet. Learning to hear the quieter one takes practice.
-
----
-
-## How to give criticism well
-
-Executive coach Kim Scott offers a simple frame for giving feedback that actually lands: care personally while you challenge directly.
-
-That means dropping the feedback sandwich (praise, criticism, praise). Research shows it doesn't work. People either wait for the criticism to arrive or tune out the middle entirely. Instead, be direct and make your intention clear. The easier it is for someone to see that your feedback comes from a desire to help them, the easier it is for them to hear it.
-
-Scott also suggests removing the phrase "don't take it personally" from your vocabulary. It's fine if someone has an emotional reaction to feedback. That's normal. Respond with compassion and keep going.
-
----
-
-## The second score
-
-One of the most practical ideas in the episode is what Grant calls the second score.
-
-The first score is the feedback itself. You can't control it. But the second score is how you respond to it, and that's entirely yours. Do you get defensive? Shut down? Or do you listen, ask questions, and show you're willing to engage?
-
-Grant's point is that people often admire the person who receives hard feedback well more than the person who never seems to need it. If you know you're being evaluated on your openness, there's no fixed image left to protect.
-
-A simple habit: after you receive feedback, ask the person who gave it how you came across. That second score becomes something you can actually work on.
-
----
-
-## Pain plus reflection equals progress
-
-Ray Dalio, founder of Bridgewater Associates, puts it plainly: pain plus reflection equals progress. The pain of criticism is the signal. Reflection is what turns it into something useful.
-
-That doesn't mean criticism stops hurting. But over time, with enough practice, the gap between the sting and the learning can shrink. What used to take weeks to process can start to take hours, then minutes.
-
-The goal isn't to stop feeling the discomfort. It's to get faster at moving through it toward something useful.
-
----
-
-## The takeaway
-
-You don't have to build a culture of radical transparency overnight. But you can start by finding one or two people who'll give you honest feedback and committing to actually hear them. Ask for criticism before it arrives unsolicited. Give yourself a second score each time. And practice sitting with the discomfort long enough to find the lesson in it.
-
-The people who get best at receiving feedback aren't the ones who feel it less. They're the ones who've learned to do something with it faster.
-
----
-
-Source: WorkLife with Adam Grant, "How to Love Criticism" (April 2018)`,
-    thumbnail: "/images/how-to-love-criticism.png",
-    href: "https://www.youtube.com/watch?v=Wh1zhRck-Wg",
-    youtubeId: "Wh1zhRck-Wg",
-    isExternal: true,
-    featured: false,
-    cost: "Free",
-    timeToComplete: "~24 min",
-  },
-  {
-    slug: "build-your-challenge-network",
-    title: "Build your challenge network",
-    category: "Read",
-    description:
-      "Most of us have a support network. This guide helps you build the other kind: the people who tell you the truth.",
-    detailDescription: `Honest feedback is rare. Not because people don't have opinions, but because most of us never make it easy for them to share those opinions with us. We surround ourselves with people who reassure us, then wonder why we keep making the same mistakes.
-
-A challenge network solves that problem. It's a small group of people you deliberately recruit to tell you what you need to hear. The idea comes from organisational psychologist Adam Grant, who argues that the people who grow fastest at work aren't the ones who avoid criticism. They're the ones who've built systems to seek it out.
-
-This guide walks you through how to do that. It covers the two sides of the relationship: what you're asking your challenge network to commit to, and what you're committing to in return. Because this only works if both people know what they're agreeing to. It also includes a short framework for choosing the right people and a script you can use almost verbatim to start the conversation.
-
-The guide is designed to be shared. Page two works as a standalone invitation. Send it directly to someone you'd like in your network so they understand what they're agreeing to before they say yes.
-
-Download it, use page one as your reference, and send page two to the people you trust most to be honest with you.`,
-    thumbnail: "/images/build-your-challenge-network.png",
-    href: "/downloads/how-to-build-your-challenge-network.pdf",
-    isExternal: true,
-    featured: false,
-    cost: "Free",
-    timeToComplete: "~5 min",
-    downloads: [
-      { label: "Build your challenge network (PDF)", href: "/downloads/how-to-build-your-challenge-network.pdf" },
-    ],
-  },
-  {
     slug: "thinking-fast-and-slow",
     title: "Thinking, Fast and Slow",
     category: "Read",
@@ -359,5 +359,103 @@ Download it, use page one as your reference, and send page two to the people you
     featured: false,
     cost: "~$17",
     timeToComplete: "~15 hours",
+  },
+  {
+    slug: "sbi-model",
+    title: "The SBI model: How to receive better feedback",
+    category: "Read",
+    description:
+      "Most feedback is too vague to act on. The SBI Model gives you three questions to ask when feedback lands without enough detail to be useful.",
+    detailDescription: `## What is the SBI Model?
+
+The SBI Model is a structured feedback framework developed by the **Center for Creative Leadership (CCL)**, one of the world's leading research organisations on leadership development. SBI stands for **Situation, Behaviour, and Impact**.
+
+The framework works because it anchors feedback to three specific things: a real moment in time, a concrete action, and a measurable result. Without all three, feedback stays in the territory of opinion and feeling rather than evidence and behaviour.
+
+**72% of employees said their performance would improve if their managers provided more corrective feedback.**
+
+Zenger & Folkman, "Your Employees Want the Negative Feedback You Hate to Give," Harvard Business Review, 2014
+
+The problem is not a shortage of feedback conversations. It's a shortage of specific ones. Vague feedback tells you something is wrong without telling you what to change.
+
+---
+
+## The three questions
+
+Most people think of SBI as a tool for the person giving feedback. But you can use it from the other side. When feedback arrives without enough detail to act on, ask the provider to fill in the three blanks.
+
+**S — Situation: "Where did this happen?"**
+Pins the feedback to a real moment. Without a specific context, you can't know what triggered the observation.
+
+**B — Behaviour: "What exactly did I do or say?"**
+Moves from trait to action. "You were dismissive" becomes "you cut across two people before they finished speaking."
+
+**I — Impact: "What was the specific result of that action?"**
+Shows you why it matters. The same behaviour can have different impacts depending on context. This step makes that visible.
+
+---
+
+## When you receive feedback, ask for all three
+
+You're not pushing back. You're doing the work of turning an impression into something you can act on.
+
+**Situation:** "Where did this happen?"
+
+---
+
+**Behaviour:** "What exactly did I do or say?"
+
+---
+
+**Impact:** "What was the specific result of that action?"
+
+---
+
+## Vague vs specific: what the difference looks like
+
+**Before (vague):** "You need to work on your communication."
+
+**After SBI is applied:**
+
+- **Situation:** In Tuesday's stakeholder meeting.
+- **Behaviour:** You answered the client's question before they finished speaking, and didn't address what they actually asked.
+- **Impact:** The client looked frustrated and repeated the question. It created an awkward pause and slowed the meeting down.
+
+The second version gives you something to work with. You know when it happened, what specifically you did, and what effect it had. That's the level of detail that leads to real change.
+
+---
+
+## Why vague feedback doesn't work
+
+When feedback is framed around traits or intentions ("you seem disengaged", "you need more confidence"), it triggers a defensive response. Your brain reads an attack on identity, not an observation about behaviour. The CCL developed SBI precisely to avoid this: by focusing on a specific action in a specific moment, feedback becomes harder to dismiss and easier to act on.
+
+As receivers, we often accept vague feedback without asking for more. We assume we understand what was meant, or we feel too awkward to probe. But vague feedback that goes unexamined doesn't help you grow. It just creates a vague sense that something is wrong.
+
+The Center for Creative Leadership has trained over 2 million leaders across 160 countries using this framework. The model is grounded in behavioural psychology: separating observation from interpretation makes feedback less threatening and more actionable.
+
+---
+
+## Frequently asked questions
+
+**Can I use SBI in any feedback conversation?**
+Yes. SBI applies in any context where feedback is given or received: performance reviews, peer feedback, one-to-ones, or informal conversations. The framework is simple enough to use in the moment without needing to explain it.
+
+**What if the person giving feedback can't answer the questions?**
+That's useful information too. If someone can't point to a specific situation or behaviour, the feedback may be based on a general impression rather than observed evidence. You can acknowledge what they said and ask them to come back with an example when they have one.
+
+**Is it okay to ask these questions if the feedback is positive?**
+Absolutely. SBI works equally well for reinforcing feedback. Knowing the specific behaviour that had a positive impact helps you repeat it deliberately, rather than hoping you'll accidentally do it again.
+
+**Who developed the SBI feedback model?**
+The SBI model was developed by the Center for Creative Leadership (CCL), a research-based organisation that has studied leadership development since 1970. It remains one of the most widely used feedback frameworks in leadership and professional development.`,
+    thumbnail: "/images/SBI-model.png",
+    href: "/downloads/sbi-model-printout.pdf",
+    isExternal: true,
+    featured: false,
+    cost: "Free",
+    timeToComplete: "~3 min",
+    downloads: [
+      { label: "Download the SBI model guide (PDF)", href: "/downloads/sbi-model-printout.pdf" },
+    ],
   },
 ];
