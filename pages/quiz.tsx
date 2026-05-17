@@ -378,7 +378,14 @@ function ResultSection({ type, scores, dominant }: { type: 'A' | 'B' | 'C'; scor
       }}>
         <p style={{ color: 'var(--muted-foreground)', marginBottom: 0 }}>
           {r.teaser}{' '}
-          <Link href="/course" style={{ color: 'var(--primary-600)', fontWeight: '500' }}>
+          <Link
+            href="/course"
+            style={{ color: 'var(--primary-600)', fontWeight: '500' }}
+            onClick={() => {
+              const gtag = typeof window !== 'undefined' ? (window as unknown as Record<string, unknown>).gtag as ((...args: unknown[]) => void) | undefined : undefined;
+              gtag?.('event', 'waitlist_click', { source: 'quiz_result_inline', trigger_type: type });
+            }}
+          >
             join the waitlist →
           </Link>
         </p>
@@ -437,13 +444,15 @@ export default function Quiz() {
     if (currentQ < QUESTIONS.length - 1) {
       setCurrentQ(currentQ + 1);
     } else {
-      gtag?.('event', 'quiz_complete', {
-        quiz_name: 'main_site_quiz',
-      });
       const nextScores = { A: 0, B: 0, C: 0 };
       next.forEach((a) => { if (a in nextScores) nextScores[a as 'A' | 'B' | 'C']++; });
       const nextMax = Math.max(nextScores.A, nextScores.B, nextScores.C);
       const nextDominant = (['A', 'B', 'C'] as const).filter((k) => nextScores[k] === nextMax);
+      const resultLabels = nextDominant.map((k) => TRIGGER_LABELS[k]).join('+');
+      gtag?.('event', 'quiz_complete', {
+        quiz_name: 'main_site_quiz',
+        trigger_result: resultLabels,
+      });
       setSelectedTrigger(nextDominant[0]);
       setPhase('result');
     }
@@ -513,7 +522,12 @@ export default function Quiz() {
                 <div style={{ textAlign: 'center' }}>
                   <button
                     className="btn btn-primary btn-lg"
-                    onClick={() => { setActiveQuestions(prepareQuestions(QUESTIONS, true)); setPhase('quiz'); }}
+                    onClick={() => {
+                      const gtag = typeof window !== 'undefined' ? (window as unknown as Record<string, unknown>).gtag as ((...args: unknown[]) => void) | undefined : undefined;
+                      gtag?.('event', 'quiz_start', { quiz_name: 'main_site_quiz' });
+                      setActiveQuestions(prepareQuestions(QUESTIONS, true));
+                      setPhase('quiz');
+                    }}
                   >
                     Find out my trigger type →
                   </button>
@@ -704,7 +718,14 @@ export default function Quiz() {
                 <p style={{ color: 'var(--primary-700)', maxWidth: '480px', margin: '0 auto var(--space-6)' }}>
                   The Open to Feedback course covers all three trigger types in detail, alongside frameworks for seeking, actioning, and giving feedback well.
                 </p>
-                <Link href="/course" className="btn btn-primary btn-lg">
+                <Link
+                  href="/course"
+                  className="btn btn-primary btn-lg"
+                  onClick={() => {
+                    const gtag = typeof window !== 'undefined' ? (window as unknown as Record<string, unknown>).gtag as ((...args: unknown[]) => void) | undefined : undefined;
+                    gtag?.('event', 'waitlist_click', { source: 'quiz_result_footer' });
+                  }}
+                >
                   Join the waitlist →
                 </Link>
               </div>
