@@ -125,7 +125,7 @@ function PostCard({ post }: { post: BlogPost }) {
       <img
         src={post.thumbnail}
         alt={post.title}
-        style={{ width: "100%", height: 200, objectFit: "cover", display: "block" }}
+        style={{ width: "100%", height: "auto", display: "block" }}
       />
 
       <div

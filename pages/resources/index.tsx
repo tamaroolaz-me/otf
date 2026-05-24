@@ -105,7 +105,7 @@ function ResourceCard({ resource }: { resource: Resource }) {
         <img
           src={resource.thumbnail}
           alt={resource.title}
-          style={{ width: "100%", height: 200, objectFit: "cover", display: "block" }}
+          style={{ width: "100%", height: "auto", display: "block" }}
         />
         <span
           style={{

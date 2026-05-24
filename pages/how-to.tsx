@@ -259,7 +259,7 @@ export default function HowTo() {
                         <img
                           src={resource.thumbnail}
                           alt={resource.title}
-                          style={{ width: '100%', height: 160, objectFit: 'cover', display: 'block' }}
+                          style={{ width: '100%', height: 'auto', display: 'block' }}
                         />
                         <span style={{
                           position: 'absolute',

@@ -229,8 +229,7 @@ export default function ResourceDetailPage({ resource }: Props) {
               alt={resource.title}
               style={{
                 width: "100%",
-                height: 320,
-                objectFit: "cover",
+                height: "auto",
                 borderRadius: "var(--radius)",
                 marginBottom: "var(--space-8)",
                 display: "block",

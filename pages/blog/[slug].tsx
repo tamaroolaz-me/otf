@@ -373,8 +373,7 @@ export default function BlogPostPage({ post, mdxSource }: Props) {
             alt={post.title}
             style={{
               width: "100%",
-              height: 320,
-              objectFit: "cover",
+              height: "auto",
               borderRadius: "var(--radius)",
               marginBottom: "var(--space-8)",
               display: "block",
