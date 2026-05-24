@@ -7,13 +7,21 @@ import { serialize } from "next-mdx-remote/serialize";
 import remarkGfm from "remark-gfm";
 import Nav from "../../components/Nav";
 import SeoHead from "../../components/SeoHead";
-import { articleSchema, breadcrumbSchema } from "../../lib/structuredData";
+import {
+  articleSchema,
+  breadcrumbSchema,
+  faqPageSchema,
+} from "../../lib/structuredData";
 import { getAllPosts, getPostBySlug } from "../../data/blog";
 import type { BlogPost } from "../../data/blog";
+import { extractFaqsFromMdx } from "../../lib/extractFaqs";
+
+const SITE_URL = "https://opentofeedback.com";
 
 interface Props {
   post: BlogPost;
   mdxSource: MDXRemoteSerializeResult;
+  faqs: Array<{ question: string; answer: string }>;
 }
 
 export const getStaticPaths: GetStaticPaths = () => {
@@ -26,7 +34,8 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const mdxSource = await serialize(content, {
     mdxOptions: { remarkPlugins: [remarkGfm] },
   });
-  return { props: { post, mdxSource } };
+  const faqs = extractFaqsFromMdx(content);
+  return { props: { post, mdxSource, faqs } };
 };
 
 function formatDate(iso: string) {
@@ -307,7 +316,8 @@ const markdownComponents: React.ComponentProps<typeof MDXRemote>["components"] =
   ),
 };
 
-export default function BlogPostPage({ post, mdxSource }: Props) {
+export default function BlogPostPage({ post, mdxSource, faqs }: Props) {
+  const pageUrl = `${SITE_URL}/blog/${post.slug}`;
   return (
     <>
       <SeoHead
@@ -337,6 +347,14 @@ export default function BlogPostPage({ post, mdxSource }: Props) {
             ),
           }}
         />
+        {faqs.length > 0 && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(faqPageSchema(faqs, pageUrl)),
+            }}
+          />
+        )}
       </Head>
       <Nav />
       <main style={{ paddingTop: 70 }}>

@@ -104,6 +104,8 @@ author:
 
 **Body:** Paste the extracted body (from Step 1) directly. Apply internal link substitutions identified above. Make no other changes to the text.
 
+**FAQ sections (SEO / AEO):** Use `## Frequently Asked Questions` then one `### Full question?` per item, with a blank line before each answer paragraph. Do not use bold-only questions (`**Question?**`). Lead each answer with a direct, snippet-friendly first sentence. FAQPage JSON-LD is generated automatically from this structure at build time.
+
 **BlogPost interface reference** (from `data/blog.ts`):
 ```ts
 interface BlogPost {

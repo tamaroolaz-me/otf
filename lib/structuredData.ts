@@ -86,6 +86,25 @@ export function videoSchema(resource: {
   };
 }
 
+export function faqPageSchema(
+  faqs: Array<{ question: string; answer: string }>,
+  pageUrl: string
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
+    mainEntity: faqs.map(({ question, answer }) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: answer,
+      },
+    })),
+  };
+}
+
 export function breadcrumbSchema(
   items: Array<{ name: string; path: string }>
 ) {
