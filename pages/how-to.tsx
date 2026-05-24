@@ -6,6 +6,31 @@ import { resources, CATEGORY_META } from '../data/resources';
 
 const featuredResources = resources.filter((r) => r.featured);
 
+const stepNumberStyle: React.CSSProperties = {
+  flexShrink: 0,
+  width: "48px",
+  height: "48px",
+  minWidth: "48px",
+  minHeight: "48px",
+  background: "var(--primary)",
+  color: "white",
+  borderRadius: "50%",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  fontSize: "1.25rem",
+  fontWeight: 700,
+  lineHeight: 1,
+  fontVariantNumeric: "tabular-nums",
+};
+
+const stepHeaderStyle: React.CSSProperties = {
+  display: "flex",
+  alignItems: "flex-start",
+  gap: "var(--space-4)",
+  marginBottom: "var(--space-4)",
+};
+
 export default function HowTo() {
   return (
     <>
@@ -61,27 +86,9 @@ export default function HowTo() {
             
             {/* Step 1 */}
             <div className="card" style={{ marginBottom: 'var(--space-8)' }}>
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 'var(--space-4)',
-                marginBottom: 'var(--space-4)'
-              }}>
-                <div style={{
-                  width: '48px',
-                  height: '48px',
-                  background: 'var(--primary)',
-                  color: 'white',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '1.25rem',
-                  fontWeight: '700'
-                }}>
-                  1
-                </div>
-                <h2 style={{ margin: 0, color: 'var(--foreground)' }}>
+              <div style={stepHeaderStyle}>
+                <div style={stepNumberStyle} aria-hidden>1</div>
+                <h2 style={{ margin: 0, color: 'var(--foreground)', flex: 1, minWidth: 0 }}>
                   Understand what feedback is, when and why it's valuable
                 </h2>
               </div>
@@ -97,27 +104,9 @@ export default function HowTo() {
 
             {/* Step 2 */}
             <div className="card" style={{ marginBottom: 'var(--space-8)' }}>
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 'var(--space-4)',
-                marginBottom: 'var(--space-4)'
-              }}>
-                <div style={{
-                  width: '48px',
-                  height: '48px',
-                  background: 'var(--primary)',
-                  color: 'white',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '1.25rem',
-                  fontWeight: '700'
-                }}>
-                  2
-                </div>
-                <h2 style={{ margin: 0, color: 'var(--foreground)' }}>
+              <div style={stepHeaderStyle}>
+                <div style={stepNumberStyle} aria-hidden>2</div>
+                <h2 style={{ margin: 0, color: 'var(--foreground)', flex: 1, minWidth: 0 }}>
                   Build your challenge network
                 </h2>
               </div>
@@ -133,27 +122,9 @@ export default function HowTo() {
 
             {/* Step 3 */}
             <div className="card" style={{ marginBottom: 'var(--space-8)' }}>
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 'var(--space-4)',
-                marginBottom: 'var(--space-4)'
-              }}>
-                <div style={{
-                  width: '48px',
-                  height: '48px',
-                  background: 'var(--primary)',
-                  color: 'white',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '1.25rem',
-                  fontWeight: '700'
-                }}>
-                  3
-                </div>
-                <h2 style={{ margin: 0, color: 'var(--foreground)' }}>
+              <div style={stepHeaderStyle}>
+                <div style={stepNumberStyle} aria-hidden>3</div>
+                <h2 style={{ margin: 0, color: 'var(--foreground)', flex: 1, minWidth: 0 }}>
                   Practice Asking for & Receiving Feedback
                 </h2>
               </div>
@@ -169,27 +140,9 @@ export default function HowTo() {
 
             {/* Step 4 */}
             <div className="card" style={{ marginBottom: 'var(--space-8)' }}>
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 'var(--space-4)',
-                marginBottom: 'var(--space-4)'
-              }}>
-                <div style={{
-                  width: '48px',
-                  height: '48px',
-                  background: 'var(--primary)',
-                  color: 'white',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '1.25rem',
-                  fontWeight: '700'
-                }}>
-                  4
-                </div>
-                <h2 style={{ margin: 0, color: 'var(--foreground)' }}>
+              <div style={stepHeaderStyle}>
+                <div style={stepNumberStyle} aria-hidden>4</div>
+                <h2 style={{ margin: 0, color: 'var(--foreground)', flex: 1, minWidth: 0 }}>
                   Reflect & Decide What to Action
                 </h2>
               </div>
