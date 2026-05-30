@@ -31,6 +31,7 @@ export function articleSchema(post: {
   title: string;
   description: string;
   publishedAt: string;
+  updatedAt?: string;
   thumbnail: string;
   author?: { name: string; url?: string };
 }) {
@@ -39,6 +40,7 @@ export function articleSchema(post: {
     : `${SITE_URL}${post.thumbnail}`;
   const url = `${SITE_URL}/blog/${post.slug}`;
   const publishedIso = new Date(post.publishedAt).toISOString();
+  const modifiedIso = new Date(post.updatedAt ?? post.publishedAt).toISOString();
   const author = post.author ?? DEFAULT_AUTHOR;
   return {
     "@context": "https://schema.org",
@@ -47,7 +49,7 @@ export function articleSchema(post: {
     description: post.description,
     image: imageUrl,
     datePublished: publishedIso,
-    dateModified: publishedIso,
+    dateModified: modifiedIso,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     url,
     publisher: {

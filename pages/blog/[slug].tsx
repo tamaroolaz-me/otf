@@ -326,6 +326,8 @@ export default function BlogPostPage({ post, mdxSource, faqs }: Props) {
         path={`/blog/${post.slug}`}
         image={post.thumbnail}
         type="article"
+        publishedAt={post.publishedAt}
+        modifiedAt={post.updatedAt}
       />
       <Head>
         <meta name="author" content={post.author?.name ?? "Tamryn Roberts"} />

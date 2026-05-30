@@ -11,6 +11,7 @@ export interface BlogPost {
   featured: boolean;
   timeToRead: string;
   publishedAt: string; // "YYYY-MM-DD"
+  updatedAt?: string;  // "YYYY-MM-DD" — bump when content changes
   thumbnail: string;
   tags?: string[];
   author?: { name: string; url?: string }; // omit to default to site owner

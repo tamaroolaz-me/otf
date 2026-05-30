@@ -1,41 +1,21 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Open to Feedback
 
-## Getting Started
+**[opentofeedback.com](https://opentofeedback.com)** — a practical resource for anyone who wants to get better at receiving feedback at work and in life.
 
-First, run the development server:
+## What it is
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Most feedback advice is written for managers about giving feedback. This site is for everyone — the person sitting across the table, trying to actually hear hard things without shutting down or spiralling. It covers both sides: how to receive feedback well, and how to give it in a way that lands.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The site is evolving constantly and currently includes:
+- A **quiz** that helps you understand your personal feedback triggers
+- Curated **resources** — books, podcasts, videos and tools I've found useful
+- A **blog** with practical guides on specific situations (like how to respond to vague feedback, or what to do when feedback feels unfair)
+- A **course** and **workshop** for teams who want to build a healthier feedback culture
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Who it's for
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Anyone who's ever walked out of a performance review feeling confused, defensive, or just... flat. Or anyone who manages people and wants feedback conversations to go better. The content is grounded in research but written for real humans, not HR departments.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## How it's built and maintained
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
-// trigger redeploy
+The site is built with Next.js and deployed on Vercel. I'm not a developer — I maintain and update it using **Claude Code** inside VS Code. I describe what I want to add or change in plain English, and Claude helps me write the code, debug issues, and ship updates. It's been a genuinely good way to build something without needing to learn to code from scratch. I write the blog posts and resource pages on Notion and then use a Claude skill to import them into this site.

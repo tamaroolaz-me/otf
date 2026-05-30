@@ -1,8 +1,46 @@
 import React from 'react';
+import Head from 'next/head';
 import Link from 'next/link';
 import Nav from '../components/Nav';
 import SeoHead from '../components/SeoHead';
 import { resources, CATEGORY_META } from '../data/resources';
+
+const SITE_URL = 'https://opentofeedback.com';
+
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How to Start Being Open to Feedback',
+  description:
+    'A practical four-step guide to giving and receiving feedback well. Start small, build the habit, and turn feedback into a tool for real growth.',
+  url: `${SITE_URL}/how-to`,
+  step: [
+    {
+      '@type': 'HowToStep',
+      position: 1,
+      name: 'Understand what feedback is, when and why it\'s valuable',
+      text: 'Criticism triggers a real physiological pain response. Start by listening to the "How to Love Criticism" podcast episode to understand why feedback is triggering and what you can do about it.',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 2,
+      name: 'Build your challenge network',
+      text: 'Identify one or two people in your life who will push back on you honestly — not cheerleaders, but people who will tell you what you need to hear. Make it easy for them by explicitly asking for regular feedback.',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 3,
+      name: 'Practice asking for and receiving feedback',
+      text: 'Start small and build comfort level. Ask specific questions like "What\'s one thing I could do better?" and send short feedback forms after meetings or projects.',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 4,
+      name: 'Reflect and decide what to action',
+      text: 'Notice how well you received the feedback (your "second score"), then unpack it thoughtfully: what is unclear, what might be true, how can you act on the most valuable insights, and what patterns are you seeing across sources.',
+    },
+  ],
+};
 
 const featuredResources = resources.filter((r) => r.featured);
 
@@ -39,6 +77,12 @@ export default function HowTo() {
         description="A practical four-step guide to giving and receiving feedback well. Start small, build the habit, and turn feedback into a tool for real growth."
         path="/how-to"
       />
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+        />
+      </Head>
       <Nav />
       
       {/* Add top padding to account for fixed header */}

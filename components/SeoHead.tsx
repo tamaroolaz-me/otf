@@ -11,6 +11,8 @@ type SeoHeadProps = {
   image?: string;
   type?: "website" | "article";
   noIndex?: boolean;
+  publishedAt?: string;
+  modifiedAt?: string;
 };
 
 export default function SeoHead({
@@ -20,6 +22,8 @@ export default function SeoHead({
   image = DEFAULT_OG_IMAGE,
   type = "website",
   noIndex = false,
+  publishedAt,
+  modifiedAt,
 }: SeoHeadProps) {
   const url = `${SITE_URL}${path}`;
   const imageUrl = image.startsWith("http") ? image : `${SITE_URL}${image}`;
@@ -43,6 +47,12 @@ export default function SeoHead({
       <meta property="og:image" content={imageUrl} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
+      {type === "article" && publishedAt && (
+        <meta property="article:published_time" content={new Date(publishedAt).toISOString()} />
+      )}
+      {type === "article" && (publishedAt || modifiedAt) && (
+        <meta property="article:modified_time" content={new Date(modifiedAt ?? publishedAt!).toISOString()} />
+      )}
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
