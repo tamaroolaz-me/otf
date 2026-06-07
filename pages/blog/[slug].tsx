@@ -297,18 +297,48 @@ const markdownComponents: React.ComponentProps<typeof MDXRemote>["components"] =
       {children}
     </td>
   ),
-  img: ({ src, alt }) => (
-    <img
-      src={src}
-      alt={alt}
-      style={{
-        maxWidth: "100%",
-        borderRadius: "var(--radius)",
-        marginBottom: "var(--space-5)",
-        display: "block",
-      }}
-    />
-  ),
+  img: ({ src, alt, title }) => {
+    const imgEl = (
+      <img
+        src={src}
+        alt={alt ?? ""}
+        style={{
+          maxWidth: "100%",
+          borderRadius: "var(--radius)",
+          display: "block",
+          width: "100%",
+        }}
+      />
+    );
+    if (title) {
+      return (
+        <figure
+          style={{
+            margin: "var(--space-8) 0",
+            padding: 0,
+          }}
+        >
+          {imgEl}
+          <figcaption
+            style={{
+              marginTop: "var(--space-2)",
+              fontSize: "0.8125rem",
+              color: "var(--muted-foreground)",
+              textAlign: "center",
+              lineHeight: 1.5,
+            }}
+          >
+            {title}
+          </figcaption>
+        </figure>
+      );
+    }
+    return (
+      <div style={{ margin: "var(--space-8) 0" }}>
+        {imgEl}
+      </div>
+    );
+  },
   del: ({ children }) => (
     <del style={{ textDecoration: "line-through", color: "var(--muted-foreground)" }}>
       {children}

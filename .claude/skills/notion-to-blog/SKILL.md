@@ -48,6 +48,58 @@ Check the `Platform:` field.
 
 ---
 
+## Images in blog post bodies
+
+### How to mark image positions in Notion
+
+In your Notion document, use a **Callout block** (the ⊕ block with an icon) wherever you want an image to appear in the body. Set the callout icon to 📷 and write the content in this format:
+
+```
+📷 IMAGE: /images/filename.png | Optional caption text here
+```
+
+- The path must start with `/images/` (relative to `public/`)
+- The `| caption` part is optional — omit it if you don't want a caption shown
+- Callout blocks export from Notion as blockquote lines (`> ...`), so the raw export will look like:
+  `> 📷 IMAGE: /images/filename.png | Optional caption text here`
+
+**Alternative (if callout blocks aren't available):** Write a regular paragraph with the same `📷 IMAGE: ...` format. It exports identically.
+
+### How the skill processes image markers
+
+Notion callout blocks export in two formats depending on the Notion client version. Handle both:
+
+**Format A — `<aside>` block** (common in newer Notion exports):
+```
+<aside>
+📷
+
+IMAGE: /images/filename.png | Optional caption
+
+</aside>
+```
+Collect all lines between `<aside>` and `</aside>`, strip the `📷` icon line, and extract the `IMAGE: ...` line.
+
+**Format B — blockquote line** (older Notion exports or manual callouts):
+```
+> 📷 IMAGE: /images/filename.png | Caption text
+> 📷 IMAGE: /images/filename.png
+📷 IMAGE: /images/filename.png | Caption text
+📷 IMAGE: /images/filename.png
+```
+
+In both cases, convert to MDX image syntax:
+
+- **With caption:** `![Caption text](/images/filename.png "Caption text")`
+- **Without caption:** `![](/images/filename.png)`
+
+The caption text (if present) becomes both the `alt` attribute and the `title` attribute — the renderer uses `title` to display a `<figcaption>` below the image.
+
+**Before writing the MDX file:** check that each referenced image file exists at `public/images/filename.png`. If any image is missing, flag it to the user rather than silently writing a broken reference:
+> "Image not found: `public/images/filename.png` — please add this file before publishing."
+
+---
+
 ## Step 3A — Blog post output
 
 ### Derive the slug
